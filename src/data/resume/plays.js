@@ -1,0 +1,33 @@
+const plays = [
+  {
+    name: 'NTU Chinese Society',
+    year: 'Aug 2021 - present',
+    position: 'Diabolo Group Head',
+    link: 'https://www.facebook.com/NTUChineseSoc/',
+    points: [
+      'Conducted weekly training',
+      "Directed public performances in NTU New Year's Gala and other out-campus locations",
+    ],
+  },
+  {
+    name: 'NTU Chinese Dance Club',
+    year: 'Aug 2021 - present',
+    link: 'https://ntucac.com/chinese-dance-club/',
+    position: 'Logistic Group Member',
+    points: [
+      "Maintained the club's storage room",
+      "Conducted back-end work in club's performance",
+    ],
+  },
+  {
+    name: 'NTU Open Source Society',
+    year: 'Aug 2020 - May 2021',
+    position: 'Member',
+    link: 'https://ntuoss.com/home',
+    points: [
+      'Attended weekly workshop',
+    ],
+  },
+];
+
+export default plays;
