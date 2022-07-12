@@ -5,8 +5,8 @@ const plays = [
     position: 'Diabolo Group Head',
     link: 'https://www.facebook.com/NTUChineseSoc/',
     points: [
-      'Conducted weekly training',
-      "Directed public performances in NTU New Year's Gala and other out-campus locations",
+      'Conducted weekly training to current members and recruit new members.',
+      "Designed, directed and gave public performance in NTU New Year's Gala and other out-campus communities.",
     ],
   },
   {

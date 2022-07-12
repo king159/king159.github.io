@@ -33,7 +33,7 @@ const data = [
     date: 'Mar 2021 - Apr 2021',
     link: 'https://github.com/king159/cz4041',
     points: [
-      'Conduct experiments and paper review of convolutional neural network (CNN), convolutional autoencoder (CAE), transfer learning and ensemble learning on the Kaggle Plant Seedlings Classification competition.',
+      'Conducted experiments and paper review of convolutional neural network (CNN), convolutional autoencoder (CAE), transfer learning and ensemble learning on the Kaggle Plant Seedlings Classification competition.',
       'Achieved top 17.88% of the Leaderboard among all 833 teams.',
     ],
   },
@@ -46,7 +46,7 @@ const data = [
     date: 'Aug 2020 - June 2021',
     link: 'https://github.com/king159/ureca',
     points: [
-      'Conducted literature reviews on computer chess.',
+      'Conducted literature review on computer chess.',
       'Used Pytorch to construct various neural network structures as the evaluation function of computer chess engine under supervised classification setting. ',
       'Achieved more than 90% top-2 accuracy on the test set after optimization.',
     ],
