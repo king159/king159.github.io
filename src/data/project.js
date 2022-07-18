@@ -6,7 +6,7 @@ const data = [
     image1: '/images/projects/sgg1.jpg',
     image2: '/images/projects/sgg2.jpg',
     date: 'June 2022 - present',
-    link: ' ',
+    link: 'http://psgdataset.org/',
     points: [
       'Ongoing project',
     ],
