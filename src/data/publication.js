@@ -1,7 +1,7 @@
 const data = [
   {
     title: 'TransPatch: A Transformer-based Generator for Accelerating Transferable Patch Generation in Adversarial Attacks Against Object Detection Models',
-    author: 'Wang Jinghao, Cui Chenling, Wen Xuejun, Shi Jie @ HUAWEI',
+    author: 'Jinghao Wang, Chenling Cui, Xuejun Wen, Jie Shi',
     image1: '/images/projects/attack1.jpg',
     image2: '/images/projects/attack2.jpg',
     conference: 'In proceedings of ECCV Workshop AROW, 2022',
