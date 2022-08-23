@@ -10,7 +10,8 @@ const ProjectCell = ({data}) => {
         <h3> {data.title} </h3>
         <p>{data.subtitle} @ {data.location}</p>
         <p>{data.date}</p>
-        <a href={data.link} className="image">
+        <p> <a href={data.link}> project link </a> </p>
+        <a className="image">
           <div onMouseOver={() => setOver(true)} onMouseOut={() => setOver(false)}>
             <img src={`${process.env.PUBLIC_URL}${over ? data.image1 : data.image2}`} alt={data.title}/>
           </div>

@@ -2,15 +2,16 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 
 
-
 const PublicationCell = ({data}) => {
   const [over, setOver] = useState(false);
   return (
     <div className="cell-container">
       <article className="mini-post">
         <p><b> {data.title}</b></p>
-        <p>author: {data.author}</p>
-        <p>publish at: {data.conference}</p>
+        <p>{data.author.split(",").map((item, index)=>(
+          <span key={index}>{item === 'Jinghao Wang' ? <b>{item + ','}</b> : item + (data.author.split(",").length === index + 1? '' : ',')}</span>
+        ))}</p>
+        <p>{data.conference}</p>
         <a href={data.link} className="image">
           <div onMouseOver={() => setOver(true)} onMouseOut={() => setOver(false)}>
             <img src={`${process.env.PUBLIC_URL}${over ? data.image1 : data.image2}`} alt={data.title}/>

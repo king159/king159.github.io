@@ -18,18 +18,11 @@ const SideBar = () => (
     </section>
 
     <section className="blurb">
-      <h2>Update</h2>
-      <p> 2022-08: One paper has been accepted to
-      <a href="https://eccv22-arow.github.io/"> ECCV 2022 workshop </a></p>
       <ul className="actions">
         <li>
           {!window.location.pathname.includes('/resume') ? <Link to="/resume" className="button">Resume</Link> : <Link to="/about" className="button">About Me</Link>}
         </li>
       </ul>
-    </section>
-
-    <section id="footer">
-      <p className="copyright">&copy; Wang Jinghao</p>
     </section>
   </section>
 );
