@@ -18,7 +18,7 @@ const data = [
     image1: '/images/projects/sentiment1.jpg',
     image2: '/images/projects/sentiment2.jpg',
     date: 'Nov 2021 - Dec 2021',
-    link: ' ',
+    link: 'https://github.com/king159/cz4042',
     points: [
       'Conducted multiple experiments and investigated how data augmentation affects the training of deep learning models in the test sentiment analysis task. ',
       'With three rule-based and three deep-learning-based augmentation methods applied on each of the three deep language models chosen (i.e. CNN, BiLSTM, BERT), it is found that different model responses differently on different augmentation methods.',
