@@ -10,7 +10,7 @@ const Play = ({ data }) => (
       </tr>
       <tr>
         <td> <b> {data.position} </b> </td>
-        <td align="right"> </td>
+        <td align="right"> {data.location}</td>
       </tr>
     </table>
     <ul className="points">
@@ -26,6 +26,7 @@ Play.propTypes = {
     name: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
     year: PropTypes.number.isRequired,
     points: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
