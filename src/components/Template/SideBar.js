@@ -12,7 +12,7 @@ const SideBar = () => (
         <img src={`${PUBLIC_URL}/images/me.jpg`} alt="" />
       </Link>
       <header>
-        <h2>Wang Jinghao Íõ¾¸œB</h2>
+        <h2>Wang Jinghao ç‹é–æ·</h2>
         <ContactIcons />
       </header>
     </section>
