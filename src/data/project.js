@@ -5,10 +5,10 @@ const data = [
     subtitle: 'Final Year Project',
     image1: '/images/projects/sgg1.jpg',
     image2: '/images/projects/sgg2.jpg',
-    date: 'June 2022 - present',
-    link: 'http://psgdataset.org/',
+    date: 'June 2022 - Nov 2022',
+    link: "",
     points: [
-      'Ongoing project',
+      'CVPR 2023 under review',
     ],
   },
   {
