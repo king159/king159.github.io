@@ -5,7 +5,7 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons/faEnvelope';
 
 const data = [
   {
-    link: '',
+    link: 'C190209@e.ntu.edu.sg',
     label: 'Email',
     description: 'C190209@e.ntu.edu.sg',
     icon: faEnvelope,
