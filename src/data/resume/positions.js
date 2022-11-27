@@ -1,6 +1,6 @@
 const positions = [
   {
-    company: 'Huawei International PTE. LTD.',
+    company: 'Singapore Digital Trust Lab, Singapore Research Centre, Huawei',
     position: 'Research Assistant',
     daterange: 'Jan 2022 - May 2022',
     location: 'Singapore',
