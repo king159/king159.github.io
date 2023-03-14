@@ -8,7 +8,7 @@ const data = [
     date: 'June 2022 - Nov 2022',
     link: "",
     points: [
-      'CVPR 2023 under review',
+      'ICCV 2023 under review',
     ],
   },
   {
