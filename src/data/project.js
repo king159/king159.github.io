@@ -37,20 +37,20 @@ const data = [
       'Achieved top 17.88% of the Leaderboard among all 833 teams.',
     ],
   },
-  {
-    title: 'Deep Learning and Computer Chess',
-    location: 'NTU',
-    subtitle: 'Undergraduate Research Experience on Campus (URECA)',
-    image1: '/images/projects/chess1.jpg',
-    image2: '/images/projects/chess2.jpg',
-    date: 'Aug 2020 - June 2021',
-    link: 'https://github.com/king159/ureca',
-    points: [
-      'Conducted literature review on computer chess.',
-      'Used Pytorch to construct various neural network structures as the evaluation function of computer chess engine under supervised classification setting. ',
-      'Achieved more than 90% top-2 accuracy on the test set after optimization.',
-    ],
-  },
+//   {
+//     title: 'Deep Learning and Computer Chess',
+//     location: 'NTU',
+//     subtitle: 'Undergraduate Research Experience on Campus (URECA)',
+//     image1: '/images/projects/chess1.jpg',
+//     image2: '/images/projects/chess2.jpg',
+//     date: 'Aug 2020 - June 2021',
+//     link: 'https://github.com/king159/ureca',
+//     points: [
+//       'Conducted literature review on computer chess.',
+//       'Used Pytorch to construct various neural network structures as the evaluation function of computer chess engine under supervised classification setting. ',
+//       'Achieved more than 90% top-2 accuracy on the test set after optimization.',
+//     ],
+//   },
 ];
 
 export default data;
