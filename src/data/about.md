@@ -4,10 +4,10 @@ He is a year-4 computer science student at Nanyang Technological University. His
 
 # Update
 
+2023-05: [Otter](https://github.com/Luodian/Otter/) has release.
+
 2023-03: One paper has been submitted to [ICCV 2023](https://iccv2023.thecvf.com/).
 
 2022-09: Awarded Dean's List in Academic Year 2021-2022.
 
 2022-08: One paper has been accepted to [ECCV Workshop on AROW, 2022](https://eccv22-arow.github.io/).
-
-2022-07: Working on the scene graph generation project as Final Year Project at [MMLAB@NTU](https://www.mmlab-ntu.com/).

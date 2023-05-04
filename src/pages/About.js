@@ -9,18 +9,18 @@ import Main from '../layouts/Main';
 const markdown = raw('../data/about.md');
 
 const About = () => (
-  <Main
-    title="About"
-  >
-    <article className="post markdown" id="about">
-      <header>
-        <div className="title">
-          <h2 data-testid="heading"><Link to="/about">About Me</Link></h2>
-        </div>
-      </header>
-      <ReactMarkdown>{markdown}</ReactMarkdown>
-    </article>
-  </Main>
+    <Main
+        title="About"
+    >
+        <article className="post markdown" id="about">
+            <header>
+                <div className="title">
+                    <h2 data-testid="heading"><Link to="/about">About Me</Link></h2>
+                </div>
+            </header>
+            <ReactMarkdown>{markdown}</ReactMarkdown>
+        </article>
+    </Main>
 );
 
 export default About;
