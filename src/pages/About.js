@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import raw from 'raw.macro';
 
 import Main from '../layouts/Main';
+// import 'src/static/css/base/_markdown.scss';
 
 // uses babel to load contents of file
 const markdown = raw('../data/about.md');

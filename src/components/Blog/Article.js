@@ -9,11 +9,20 @@ const Article = ({ data }) => {
             <article className="essay">
                 <h3 className="h3"> {data.title} </h3>
                 <p className="count"> word count: {data.count} </p>
-                <div> {readMore ? data.content.map((paragraph) => (
-                    <p className="p">{paragraph}</p>)) : `${data.content[0]}`}
-                    <button type="button" className="button"
-                        onClick={() => setReadMore(!readMore)}> {readMore ? 'Hide' : 'Full Text'}</button>
-                </div>
+                <div>
+  {readMore
+    ? data.content.map((paragraph, index) => (
+        <p className="p" key={index}>{paragraph}</p>
+      ))
+    : data.content[0]}
+  <button
+    type="button"
+    className="button"
+    onClick={() => setReadMore(!readMore)}
+  >
+    {readMore ? 'Hide' : 'Full Text'}
+  </button>
+</div>
             </article>
         </div>
     );

@@ -4,18 +4,18 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons/faEnvelope';
 // to add other icons.
 
 const data = [
-    {
-        link: 'C190209@e.ntu.edu.sg',
-        label: 'Email',
-        description: 'C190209@e.ntu.edu.sg',
-        icon: faEnvelope,
-    },
-    {
-        link: 'https://github.com/king159',
-        label: 'Github',
-        description: 'https://github.com/king159',
-        icon: faGithub,
-    },
+  {
+    link: 'C190209@e.ntu.edu.sg',
+    label: 'Email',
+    description: 'C190209@e.ntu.edu.sg',
+    icon: faEnvelope,
+  },
+  {
+    link: 'https://github.com/king159',
+    label: 'Github',
+    description: 'https://github.com/king159',
+    icon: faGithub,
+  },
 ];
 
 export default data;

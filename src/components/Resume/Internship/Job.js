@@ -6,7 +6,7 @@ const Job = ({ data }) => (
     <table cellSpacing="10">
       <tr>
         <td><b> {data.company} </b> </td>
-        <td align="right">{data.daterange}</td>
+        <td align="right">{data.dateRange}</td>
       </tr>
       <tr>
         <td> <b> {data.position} </b> </td>
@@ -25,7 +25,7 @@ Job.propTypes = {
   data: PropTypes.shape({
     company: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,
-    daterange: PropTypes.string.isRequired,
+    dateRange: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
     points: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,

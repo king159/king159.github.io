@@ -17,10 +17,6 @@ const routes = [
     path: '/publication',
   },
   {
-    label: 'Project',
-    path: '/project',
-  },
-  {
     label: 'Article',
     path: '/article',
   },

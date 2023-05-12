@@ -12,7 +12,16 @@ const PublicationCell = ({ data }) => {
                     <span key={index}>{(item === 'Jinghao Wang' || item === 'Jinghao Wang*') ? <b>{item + ','}</b> : item + (data.author.split(",").length === index + 1 ? '' : ',')}</span>
                 ))}</p>
                 <p>{data.conference}</p>
-                <p> <a href={data.link}> [paper] </a> </p>
+                <p>
+                    {Object.entries(data.link).map(([key, value], index) => (
+                        <React.Fragment key={key}>
+                            <a href={value}>{`[${key}]`}</a>
+                            {index !== Object.keys(data).length - 1 && '\u00A0\u00A0'}
+                        </React.Fragment>
+                    ))}
+                </p>
+                <p>{data.time}</p>
+
                 <a className="image">
                     <div onMouseOver={() => setOver(true)} onMouseOut={() => setOver(false)}>
                         <img src={`${process.env.PUBLIC_URL}${over ? data.image1 : data.image2}`} alt={data.title} />
@@ -30,6 +39,7 @@ PublicationCell.propTypes = {
     data: PropTypes.shape({
         title: PropTypes.string.isRequired,
         link: PropTypes.string.isRequired,
+        time: PropTypes.string.isRequired,
         author: PropTypes.string.isRequired,
         conference: PropTypes.string.isRequired,
         abstract: PropTypes.string.isRequired,
