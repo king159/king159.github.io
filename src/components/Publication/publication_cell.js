@@ -9,7 +9,7 @@ const PublicationCell = ({ data }) => {
             <article className="mini-post">
                 <p><b> {data.title}</b></p>
                 <p>{data.author.split(",").map((item, index) => (
-                    <span key={index}>{(item === 'Jinghao Wang' || item === 'Jinghao Wang*') ? <b>{item + ','}</b> : item + (data.author.split(",").length === index + 1 ? '' : ',')}</span>
+                    <span key={index}>{(item.trim() === 'Jinghao Wang' || item.trim() === 'Jinghao Wang*') ? <b>{item + ','}</b> : item + (data.author.split(",").length === index + 1 ? '' : ',')}</span>
                 ))}</p>
                 <p>{data.conference}</p>
                 <p>
@@ -46,6 +46,7 @@ PublicationCell.propTypes = {
         conference: PropTypes.string.isRequired,
         abstract: PropTypes.string.isRequired,
         image: PropTypes.string.isRequired,
+        ref: PropTypes.string.isRequired,
     }).isRequired,
 };
 
