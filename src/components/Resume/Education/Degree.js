@@ -13,11 +13,6 @@ const Degree = ({ data }) => (
                 <td align="right">{data.location}</td>
             </tr>
         </table>
-        <ul className="points">
-            {data.points.map((point) => (
-                <li key={point}>{point}</li>
-            ))}
-        </ul>
     </article>
 );
 
@@ -28,7 +23,6 @@ Degree.propTypes = {
         location: PropTypes.string.isRequired,
         school: PropTypes.string.isRequired,
         year: PropTypes.string.isRequired,
-        points: PropTypes.arrayOf(PropTypes.string).isRequired,
     }).isRequired,
 };
 

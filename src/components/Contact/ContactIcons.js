@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import data from '../../data/contact';
+import Contact from '../../data/contact';
 
 const ContactIcons = () => (
     <ul className="icons">
-        {data.map((s) => (
+        {Contact.map((s) => (
             <li key={s.label}>
                 <a href={s.link}>
                     <FontAwesomeIcon icon={s.icon} /> {s.description}
@@ -15,5 +16,12 @@ const ContactIcons = () => (
         ))}
     </ul>
 );
+
+ContactIcons.propTypes = {
+    link: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    icon: PropTypes.object.isRequired,
+};
 
 export default ContactIcons;

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 import Main from '../layouts/Main';
 
-import PublicationCell from '../components/Publication/PublicationCell';
-import data from '../data/publication';
+import PublicationCell from '../components/Publication/publication_cell';
+import data from '../data/publication_data';
 
 const Publication = () => (
     <Main title="Publication">
