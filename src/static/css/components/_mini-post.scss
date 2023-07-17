@@ -19,17 +19,17 @@
       margin: 0;
       padding: 1.25em;
 
-      background-color: rgba(255,255,255,.5);
+      background-color: rgba(255, 255, 255, .5);
       color: transparent;
       font-family: "Raleway", Helvetica, sans-serif;
       z-index: 1000;
-      text-align:justify;
+      text-align: justify;
       transition: all 0.1s;
       -webkit-transition: all 0.1s ease-in-out;
     }
 
     p:hover {
-      background-color: rgba(255,255,255,0.95);
+      background-color: rgba(255, 255, 255, 0.95);
       color: black;
     }
   }
@@ -44,47 +44,58 @@
 }
 
 .mini-post {
-  @include vendor( 'display', 'flex');
-  @include vendor( 'flex-direction', 'column');
+  @include vendor('display', 'flex');
+  @include vendor('flex-direction', 'column');
   background: _palette(bg);
   border: solid 0.2em _palette(border);
   margin: 0 0 _size(element-margin);
 
+  .conference {
+    font-style: italic;
+  }
+
   .image {
     overflow: hidden;
     width: 100%;
+
     img {
-      @include vendor( 'transition', 'transform #{_duration(transition)} ease-out');
+      @include vendor('transition', 'transform #{_duration(transition)} ease-out');
       width: 100%;
     }
   }
+
   ul {
     list-style: disc;
     padding-top: 2em;
     margin: -1.5em 0 0 1em;
   }
+
   p {
     margin: 0.7em 0 0 0.5em;
   }
-  a{
+
+  a {
     color: red;
-  };
+  }
+
 
   h3 {
-    font-size: 1em;
-    margin: 0 0 0 1em;
-    text-transform: inherit;
+    font-size: 1.3em;
+    margin: 0 0 0 0em;
+    text-transform: none;
+    text-align: center;
   }
 }
 
 .mini-posts {
   margin: 0 0 _size(element-margin);
+
   @include breakpoint(large) {
-     @include vendor( 'display', 'flex');
-    @include vendor( 'flex-wrap', 'wrap');
+    @include vendor('display', 'flex');
+    @include vendor('flex-wrap', 'wrap');
     width: calc(100% + #{_size(element-margin)});
 
-    > * {
+    >* {
       margin: _size(element-margin) _size(element-margin) 0 0;
       width: calc(50% - #{_size(element-margin)});
     }
@@ -93,11 +104,12 @@
       margin-top: 0;
     }
   }
+
   @include breakpoint(xsmall) {
     display: block;
     width: 100%;
 
-    > * {
+    >* {
       margin: 0 0 _size(element-margin);
       width: 100%;
     }

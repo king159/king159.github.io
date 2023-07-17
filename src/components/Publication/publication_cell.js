@@ -7,11 +7,11 @@ const PublicationCell = ({ data }) => {
     return (
         <div className="cell-container">
             <article className="mini-post">
-                <p><b> {data.title}</b></p>
+                <p><h3> {data.title}</h3></p>
                 <p>{data.author.split(",").map((item, index) => (
-                    <span key={index}>{(item.trim() === 'Jinghao Wang' || item.trim() === 'Jinghao Wang*') ? <b>{item + ','}</b> : item + (data.author.split(",").length === index + 1 ? '' : ',')}</span>
+                    <span key={index}>{(item.trim() === 'Jinghao Wang' || item.trim() === 'Jinghao Wang*') ? <b>{item + ',\u00A0'}</b> : item + (data.author.split(",").length === index + 1 ? '' : ',\u00A0')}</span>
                 ))}</p>
-                <p>{data.conference}</p>
+                <p className="conference">{data.conference}</p>
                 <p>
                     {Object.entries(data.link).map(([key, value], index) => (
                         <React.Fragment key={key}>
@@ -20,7 +20,7 @@ const PublicationCell = ({ data }) => {
                         </React.Fragment>
                     ))}
                 </p>
-                <p>{data.time}</p>
+                <p className='conference'>{data.time}</p>
                 <a className="image">
                     <img src={`${process.env.PUBLIC_URL}${data.image}`} alt={data.title} />
                 </a>

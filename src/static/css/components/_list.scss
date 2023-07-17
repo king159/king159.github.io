@@ -54,7 +54,7 @@ ul {
 				padding-right: 0;
 			}
 
-			> * {
+			>* {
 				@include icon;
 				border: 0;
 
@@ -100,13 +100,16 @@ ul {
 			@include breakpoint(large) {
 				text-align: center;
 
-				.next, .previous {
+				.next,
+				.previous {
 					min-width: 20em;
 				}
 			}
 
 			@include breakpoint(small) {
-				.next, .previous {
+
+				.next,
+				.previous {
 					min-width: 18em;
 				}
 			}
@@ -127,7 +130,7 @@ ul {
 					padding-top: 0;
 				}
 
-				> * {
+				>* {
 					margin-bottom: 0;
 				}
 			}
@@ -154,7 +157,7 @@ ul {
 				display: table-cell;
 				padding: 0 0 0 (_size(element-margin) * 0.5);
 
-				> * {
+				>* {
 					margin-bottom: 0;
 				}
 			}
@@ -182,13 +185,12 @@ ul {
 					padding-top: 0;
 				}
 
-				> * {
+				>* {
 					width: 100%;
 					margin: 0 !important;
 
 					&.icon {
-						&:before {
-						}
+						&:before {}
 					}
 				}
 			}

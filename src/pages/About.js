@@ -1,40 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Main from '../layouts/Main';
+
+import AboutMeCell from "../components/About/about_me_cell";
 
 const About = () => (
     <Main
         title="About"
     >
-        <article>
+        <article className="post" id="about">
             <header>
                 <div className="title">
-                    <h2 data-testid="heading">About Me</h2>
+                    <h2 data-testid="heading"><Link to="about">About Me</Link></h2>
                 </div>
             </header>
-            <div className='about'>
-                <h1>Bio</h1>
-                <p>
-                    He is a dedicated Master's student at Nanyang Technological University, specializing in visual language modeling, image generation, and adversarial attack techniques. With a profound interest in the connections between different modalities, he is eager to pursue a Ph.D. in computer vision to advance AI reasoning from both a computer science and philosophical standpoint.
-                </p>
-                <p>
-                    Motivated by intellectual curiosity and a commitment to innovation,
-                    he actively seeks opportunities to deepen his knowledge and contribute to the field. His ultimate goal is to develop AI technologies that bridge the gap between human understanding and machine intelligence.
-                </p>
-                <p>
-                    In addition to his academic pursuits, he actively engages with scientific communities, collaborating with fellow researchers and staying abreast of the latest advancements. Through his multidimensional approach to research, he aspires to make a meaningful impact in the realm of computer vision and beyond.
-                </p>
-                <h1>Update</h1>
-                <p>
-                    <ul>
-                        <li>2023-06: <a href="https://arxiv.org/abs/2306.05425">MIMIC-IT</a> has released.</li>
-                        <li>2023-05: Graduate from NTU.</li>
-                        <li>2023-05: <a href="https://arxiv.org/abs/2305.03726">Otter</a> has released.</li>
-                        <li>2022-09: Awarded Dean&aposs List in Academic Year 2021-2022.</li>
-                        <li>2022-08: <a href="https://link.springer.com/chapter/10.1007/978-3-031-25056-9_21">TransPatch</a> has been accepted to <a href="https://eccv22-arow.github.io/">ECCV Workshop on AROW, 2022</a>.</li>
-                    </ul>
-                </p>
-            </div>
+            <AboutMeCell />
         </article>
     </Main>
 );
