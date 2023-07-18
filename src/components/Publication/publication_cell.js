@@ -12,15 +12,19 @@ const PublicationCell = ({ data }) => {
                     {data.author.split(",").map((item, index) => {
                         const trimmedItem = item.trim();
                         const isHighlighted = trimmedItem === 'Jinghao Wang' || trimmedItem === 'Jinghao Wang*';
+                        const convertedItem = trimmedItem.includes('#')
 
                         return (
                             <span key={index}>
-                                {isHighlighted ? <b>{item + ',\u00A0'}</b> : item}
-                                {data.author.split(",").length === index + 1 ? '' : ',\u00A0'}
+                                {isHighlighted
+                                    ? <b>{trimmedItem}</b>
+                                    : (convertedItem ? <>{trimmedItem.replace("#", "")}<sup>&#x2709;</sup></> : trimmedItem)}
+                                {data.author.split(",").length === index + 1 ? '' : ',\u00A0\u00A0'}
                             </span>
                         );
                     })}
                 </p>
+
 
                 <p className="conference">{data.conference}</p>
                 <p>

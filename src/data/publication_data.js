@@ -1,7 +1,7 @@
 const data = [
   {
     title: 'Pair then Relation: Pair-Net for Panoptic Scene Graph Generation',
-    author: 'Jinghao Wang*, Zhengyu Wen*, Xiangtai Li, Jingkang Yang, Zujing Guo, Ziwei Liu',
+    author: 'Jinghao Wang*, Zhengyu Wen*, Xiangtai Li, Jingkang Yang, Zujing Guo, Ziwei Liu#',
     image: '/images/projects/pairnet.png',
     conference: 'arXiv',
     time: '2023-07',
@@ -41,7 +41,7 @@ const data = [
   ,
   {
     title: 'TransPatch: A Transformer-based Generator for Accelerating Transferable Patch Generation in Adversarial Attacks Against Object Detection Models',
-    author: 'Jinghao Wang, Chenling Cui, Xuejun Wen, Jie Shi',
+    author: 'Jinghao Wang, Chenling Cui, Xuejun Wen#, Jie Shi',
     image: '/images/projects/attack.jpg',
     conference: 'European Conference on Computer Vision (ECCV) Workshop on Adversarial Robustness in the Real World (AROW), 2022',
     time: '2022-08',
