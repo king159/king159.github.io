@@ -15,6 +15,8 @@ const AboutMeCell = () => (
         </p>
         <h1>Update</h1>
         <ul>
+            <li>2023-08: Join MMLab@NTU as a Master student under the supervision of <a href='https://liuziwei7.github.io/'>Prof. Liu Ziwei.</a></li>
+            <li>2023-07: The release of <a href='https://arxiv.org/abs/2307.08699'>Pair-Net</a>, a strong one-stage model for panoptic scene graph generation, is available.</li>
             <li>2023-06: The release of <a href="https://arxiv.org/abs/2306.05425">MIMIC-IT</a>, a multi-modal in-context instruction tuning, is available.</li>
             <li>2023-05: Graduated from NTU with a Bachelor of Computer Science degree. </li>
             <li>2023-05: The release of <a href="https://arxiv.org/abs/2305.03726">Otter</a>, a multi-model instruction-tunned visual language model, is available.</li>

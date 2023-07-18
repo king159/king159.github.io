@@ -5,13 +5,16 @@ const data = [
     image: '/images/projects/pairnet.png',
     conference: 'arXiv',
     time: '2023-07',
-    link: { 'paper & code coming soon': '' },
+    link: {
+      'paper': 'https://arxiv.org/abs/2307.08699',
+      'code': 'https://github.com/king159/Pair-Net'
+    },
     abstract: 'Panoptic Scene Graph (PSG) is a challenging task in Scene Graph Generation (SGG) that aims to create a more comprehensive scene graph representation using panoptic segmentation instead of boxes. However, current PSG methods have limited performance, which can hinder downstream task development. To improve PSG methods, we conducted an in-depth analysis to identify the bottleneck of the current PSG models, finding that inter-object pair-wise recall is a crucial factor which was ignored by previous PSG methods. Based on this, we present a novel framework: Pair then Relation (Pair-Net), which uses a Pair Proposal Network (PPN) to learn and filter sparse pair-wise relationships between subjects and objects. We also observed the sparse nature of object pairs and used this insight to design a lightweight Matrix Learner within the PPN. Through extensive ablation and analysis, our approach significantly improves upon leveraging the strong segmenter baseline. Notably, our approach achieves new state-of-the-art results on the PSG benchmark, with over 10% absolute gains compared to PSGFormer.',
     ref: "pairnet"
   },
   {
     title: 'MIMIC-IT: Multi-Modal In-Context Instruction Tuning',
-    author: 'Bo Li*,Yuanhan Zhang*,Liangyu Chen*, Jinghao Wang*, Fanyi Pu*, Jingkang Yang, Ziwei Liu',
+    author: 'Bo Li*,Yuanhan Zhang*,Liangyu Chen*, Jinghao Wang*, Fanyi Pu*, Jingkang Yang, Ziwei Liu#',
     image: 'images/projects/mimicit.jpg',
     conference: 'NeurIPS Datasets and Benchmarks Track, 2023, under review',
     time: '2023-06',
@@ -24,7 +27,7 @@ const data = [
   },
   {
     title: 'Otter: A Multi-Modal Model with In-Context Instruction Tuning',
-    author: 'Bo Li*, Yuanhan Zhang*, Liangyu Chen*, Jinghao Wang*, Jingkang Yang, Ziwei Liu',
+    author: 'Bo Li*, Yuanhan Zhang*, Liangyu Chen*, Jinghao Wang*, Jingkang Yang, Ziwei Liu#',
     image: 'images/projects/otter.jpg',
     conference: 'arXiv',
     time: '2023-05',

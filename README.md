@@ -3,7 +3,6 @@
 ``` bash
 # on branch main
 git add --all
-git commit -m update 
-# on branch gh-pages
+git commit -m update
 npm run deploy
 ```

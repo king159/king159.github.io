@@ -11,7 +11,7 @@ const degrees = [
     school: 'Nanyang Technological University',
     school_link: 'https://www.ntu.edu.sg/',
     degree_link: 'https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-computer-science',
-    degree: 'Bachelor of Engineering ()in Computer Science',
+    degree: 'Bachelor of Engineering in Computer Science',
     year: 'Aug 2018 - May 2023',
     location: 'Singapore',
   },
