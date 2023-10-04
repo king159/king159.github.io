@@ -4,7 +4,7 @@ const AboutMeCell = () => (
     <div className='about'>
         <h1>Bio</h1>
         <p>
-            He is a dedicated Master's student at Nanyang Technological University, specializing in visual language modeling, image generation, and adversarial attack techniques. With a profound interest in the connections between different modalities, he is eager to pursue a Ph.D. in computer vision to advance AI reasoning from both a computer science and philosophical standpoint.
+            He is a dedicated Master's student at Nanyang Technological University, specializing in multimodal large language model, image generation, and adversarial attack techniques. With a profound interest in the connections between different modalities, he is eager to pursue a Ph.D. in computer vision to advance AI reasoning from both a computer science and philosophical standpoint.
         </p>
         <p>
             Motivated by intellectual curiosity and a commitment to innovation,

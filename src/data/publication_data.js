@@ -3,7 +3,7 @@ const data = [
     title: 'Pair then Relation: Pair-Net for Panoptic Scene Graph Generation',
     author: 'Jinghao Wang*, Zhengyu Wen*, Xiangtai Li, Jingkang Yang, Zujing Guo, Ziwei Liu#',
     image: '/images/projects/pairnet.png',
-    conference: 'arXiv',
+    conference: 'PAMI, 2023, under review',
     time: '2023-07',
     link: {
       'paper': 'https://arxiv.org/abs/2307.08699',
@@ -16,7 +16,7 @@ const data = [
     title: 'MIMIC-IT: Multi-Modal In-Context Instruction Tuning',
     author: 'Bo Li*,Yuanhan Zhang*,Liangyu Chen*, Jinghao Wang*, Fanyi Pu*, Jingkang Yang, Ziwei Liu#',
     image: 'images/projects/mimicit.jpg',
-    conference: 'NeurIPS Datasets and Benchmarks Track, 2023, under review',
+    conference: 'arXiv',
     time: '2023-06',
     link: {
       'paper': 'https://arxiv.org/abs/2306.05425',
