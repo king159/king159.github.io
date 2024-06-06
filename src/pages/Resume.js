@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import Main from '../layouts/Main';
 
 import Education from '../components/Resume/Education';
-import Award from "../components/Resume/Award";
-import Internship from '../components/Resume/Internship';
+// import Award from "../components/Resume/Award";
+// import Internship from '../components/Resume/Internship';
 
-import prizes from "../data/resume/prizes";
+// import prizes from "../data/resume/prizes";
 import degrees from '../data/resume/degrees';
-import positions from '../data/resume/positions';
+// import positions from '../data/resume/positions';
 
 const Resume = () => (
   <Main
@@ -22,8 +22,8 @@ const Resume = () => (
         </div>
       </header>
       <Education data={degrees} />
-      <Award data={prizes} />
-      <Internship data={positions} />
+      {/* <Award data={prizes} /> */}
+      {/* <Internship data={positions} /> */}
     </article>
   </Main>
 );

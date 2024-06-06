@@ -1,9 +1,20 @@
 const data = [
   {
+    title: 'AID: Attention Interpolation of Text-to-Image Diffusion',
+    author: "Qiyuan He, Jinghao Wang, Ziwei Liu, Angela Yao#",
+    conference: "arXiv",
+    time: '2024-03',
+    link: {
+      'paper': "https://arxiv.org/abs/2403.17924",
+      'code': "https://github.com/QY-H00/attention-interpolation-diffusion",
+    },
+    abstract: "Conditional diffusion models can create unseen images in various settings, aiding image interpolation. Interpolation in latent spaces is well-studied, but interpolation with specific conditions like text or poses is less understood. Simple approaches, such as linear interpolation in the space of conditions, often result in images that lack consistency, smoothness, and fidelity. To that end, we introduce a novel training-free technique named Attention Interpolation via Diffusion (AID). Our key contributions include 1) proposing an inner/outer interpolated attention layer; 2) fusing the interpolated attention with self-attention to boost fidelity; and 3) applying beta distribution to selection to increase smoothness. We also present a variant, Prompt-guided Attention Interpolation via Diffusion (PAID), that considers interpolation as a condition-dependent generative process. This method enables the creation of new images with greater consistency, smoothness, and efficiency, and offers control over the exact path of interpolation. Our approach demonstrates effectiveness for conceptual and spatial interpolation.",
+    ref: "aid"
+  },
+  {
     title: 'Pair then Relation: Pair-Net for Panoptic Scene Graph Generation',
     author: 'Jinghao Wang*, Zhengyu Wen*, Xiangtai Li, Jingkang Yang, Zujing Guo, Ziwei Liu#',
-    image: '/images/projects/pairnet.png',
-    conference: 'PAMI, 2023, under review',
+    conference: 'IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), under review',
     time: '2023-07',
     link: {
       'paper': 'https://arxiv.org/abs/2307.08699',
@@ -14,8 +25,7 @@ const data = [
   },
   {
     title: 'MIMIC-IT: Multi-Modal In-Context Instruction Tuning',
-    author: 'Bo Li*,Yuanhan Zhang*,Liangyu Chen*, Jinghao Wang*, Fanyi Pu*, Jingkang Yang, Ziwei Liu#',
-    image: 'images/projects/mimicit.jpg',
+    author: 'Bo Li*, Yuanhan Zhang*, Liangyu Chen*, Jinghao Wang*, Fanyi Pu*, Jingkang Yang, Ziwei Liu#',
     conference: 'arXiv',
     time: '2023-06',
     link: {
@@ -28,21 +38,19 @@ const data = [
   {
     title: 'Otter: A Multi-Modal Model with In-Context Instruction Tuning',
     author: 'Bo Li*, Yuanhan Zhang*, Liangyu Chen*, Jinghao Wang*, Jingkang Yang, Ziwei Liu#',
-    image: 'images/projects/otter.jpg',
     conference: 'arXiv',
     time: '2023-05',
     link: {
       'paper': 'https://arxiv.org/abs/2305.03726',
       'code': 'https://github.com/Luodian/Otter'
     },
-    abstract: 'Large Language Models (LLMs) have exhibited exceptional universal aptitude as few/zero-shot learners for numerous tasks, thanks to their pre-training on large-scale text data. GPT-3 is a prominent LLM that has showcased significant capabilities in this regard. Furthermore, variants of GPT-3, namely InstructGPT and ChatGPT, equipped with instruction tuning, have proven effective in interpreting natural language instructions to perform complex real-world tasks. In this paper, we propose to introduce instruction tuning into multi-modal models, motivated by the Flamingo model\'s upstream interleaved format pretraining dataset. We adopt a similar approach to construct our MultI-Modal In-Context Instruction Tuning (MIMIC-IT) dataset. We then introduce Otter, a multi-modal model based on OpenFlamingo (open-sourced version of DeepMind\'s Flamingo), trained on MIMIC-IT and showcasing improved instruction-following ability and in-context learning. We also optimize OpenFlamingo\'s implementation for researchers, democratizing the required training resources from 1$\times$ A100 GPU to 4$\times$ RTX-3090 GPUs, and integrate both OpenFlamingo and Otter into Hugging Face Transformers for more researchers to incorporate the models into their customized training and inference pipelines.',
+    abstract: 'Large Language Models (LLMs) have exhibited exceptional universal aptitude as few/zero-shot learners for numerous tasks, thanks to their pre-training on large-scale text data. GPT-3 is a prominent LLM that has showcased significant capabilities in this regard. Furthermore, variants of GPT-3, namely InstructGPT and ChatGPT, equipped with instruction tuning, have proven effective in interpreting natural language instructions to perform complex real-world tasks. In this paper, we propose to introduce instruction tuning into multi-modal models, motivated by the Flamingo model\'s upstream interleaved format pretraining dataset. We adopt a similar approach to construct our MultI-Modal In-Context Instruction Tuning (MIMIC-IT) dataset. We then introduce Otter, a multi-modal model based on OpenFlamingo (open-sourced version of DeepMind\'s Flamingo), trained on MIMIC-IT and showcasing improved instruction-following ability and in-context learning. We also optimize OpenFlamingo\'s implementation for researchers, democratizing the required training resources from 1*A100 GPU to 4*RTX-3090 GPUs, and integrate both OpenFlamingo and Otter into Hugging Face Transformers for more researchers to incorporate the models into their customized training and inference pipelines.',
     ref: "otter"
   }
   ,
   {
     title: 'TransPatch: A Transformer-based Generator for Accelerating Transferable Patch Generation in Adversarial Attacks Against Object Detection Models',
     author: 'Jinghao Wang, Chenling Cui, Xuejun Wen#, Jie Shi',
-    image: '/images/projects/attack.jpg',
     conference: 'European Conference on Computer Vision (ECCV) Workshop on Adversarial Robustness in the Real World (AROW), 2022',
     time: '2022-08',
     link: {

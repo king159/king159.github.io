@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import Box from '@mui/material/Box';
 
 const PublicationCell = ({ data }) => {
     const [showAbstract, setShowAbstract] = useState(false);
@@ -24,29 +27,20 @@ const PublicationCell = ({ data }) => {
                         );
                     })}
                 </p>
-
-
                 <p className="conference">{data.conference}</p>
-                <p>
-                    {Object.entries(data.link).map(([key, value], index) => (
-                        <React.Fragment key={key}>
-                            <a href={value}>{`[${key}]`}</a>
-                            {index !== Object.keys(data).length - 1 && '\u00A0\u00A0'}
-                        </React.Fragment>
-                    ))}
-                </p>
+                {data.link.code ?
+                    <Box sx={{ '& button': { m: 1 } }}>
+                        <Button size="small" endIcon={<SendIcon />} onClick={() => window.open(data.link.paper)}>{"paper"}</Button>
+                        <Button size="small" endIcon={<GitHubIcon />} onClick={() => window.open(data.link.code)}>{"code"}</Button>
+                    </Box>
+                    :
+                    <p>
+                        <Button size="small" endIcon={<SendIcon />} onClick={() => window.open(data.link.paper)}>{"paper"}</Button>
+                    </p>
+                }
                 <p className='conference'>{data.time}</p>
-                <a className="image">
-                    <img src={`${process.env.PUBLIC_URL}${data.image}`} alt={data.title} />
-                </a>
                 {showAbstract ? <p>{data.abstract}</p> : <p></p>}
-                <button
-                    type="button"
-                    className="button"
-                    onClick={() => setShowAbstract(!showAbstract)}
-                >
-                    {showAbstract ? 'Hide' : 'Show Abstract'}
-                </button>
+                <Button size="small" onClick={() => setShowAbstract(!showAbstract)}>{showAbstract ? 'Hide' : 'Show Abstract'}</Button>
             </article>
         </div>
     );
@@ -60,7 +54,6 @@ PublicationCell.propTypes = {
         author: PropTypes.string.isRequired,
         conference: PropTypes.string.isRequired,
         abstract: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
         ref: PropTypes.string.isRequired,
     }).isRequired,
 };

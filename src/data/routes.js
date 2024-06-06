@@ -2,7 +2,7 @@ const routes = [
   {
     index: true,
     label: 'Wang Jinghao',
-    path: '/',
+    path: '/about',
   },
   {
     label: 'About',
@@ -15,10 +15,6 @@ const routes = [
   {
     label: 'Publication',
     path: '/publication',
-  },
-  {
-    label: 'Article',
-    path: '/article',
   },
 ];
 
