@@ -5,11 +5,11 @@ const Degree = ({ data }) => (
     <article className="degree-container">
         <table cellSpacing="10">
             <tr>
-                <td> <b> <a href={data.school_link}> {data.school} </a> </b> </td>
+                <td> <b> <a href={data.schoolLink}> {data.school} </a> </b> </td>
                 <td align="right"> {data.year} </td>
             </tr>
             <tr>
-                <td> <b> <a href={data.degree_link}> {data.degree} </a> </b> </td>
+                <td> <b> <a href={data.degreeLink}> {data.degree} </a> </b> </td>
                 <td align="right">{data.location}</td>
             </tr>
         </table>
@@ -18,8 +18,8 @@ const Degree = ({ data }) => (
 
 Degree.propTypes = {
     data: PropTypes.shape({
-        school_link: PropTypes.string.isRequired,
-        degree_link: PropTypes.string.isRequired,
+        schoolLink: PropTypes.string.isRequired,
+        degreeLink: PropTypes.string.isRequired,
         degree: PropTypes.string.isRequired,
         location: PropTypes.string.isRequired,
         school: PropTypes.string.isRequired,

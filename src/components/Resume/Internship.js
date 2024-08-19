@@ -23,7 +23,7 @@ Internship.propTypes = {
         company: PropTypes.string,
         position: PropTypes.string,
         link: PropTypes.string,
-        daterange: PropTypes.string,
+        dateRange: PropTypes.string,
         location: PropTypes.string,
         points: PropTypes.arrayOf(PropTypes.string),
     })),

@@ -13,8 +13,8 @@ const data = [
   },
   {
     title: 'Pair then Relation: Pair-Net for Panoptic Scene Graph Generation',
-    author: 'Jinghao Wang*, Zhengyu Wen*, Xiangtai Li, Jingkang Yang, Zujing Guo, Ziwei Liu#',
-    conference: 'IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), under review',
+    author: 'Jinghao Wang*, Zhengyu Wen*, Xiangtai Li, Zujing Guo, Jingkang Yang, Ziwei Liu#',
+    conference: 'IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2024',
     time: '2023-07',
     link: {
       'paper': 'https://arxiv.org/abs/2307.08699',
@@ -24,34 +24,21 @@ const data = [
     ref: "pairnet"
   },
   {
-    title: 'MIMIC-IT: Multi-Modal In-Context Instruction Tuning',
-    author: 'Bo Li*, Yuanhan Zhang*, Liangyu Chen*, Jinghao Wang*, Fanyi Pu*, Jingkang Yang, Ziwei Liu#',
-    conference: 'arXiv',
+    title: 'Otter: A Multi-Modal Model with In-Context Instruction Tuning',
+    author: 'Bo Li*, Yuanhan Zhang*, Liangyu Chen*, Jinghao Wang*, Fanyi Pu*, Joshua Adrian Cahyono, Jingkang Yang, Chunyuan Li, Ziwei Liu#',
+    conference: 'IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), under review',
     time: '2023-06',
     link: {
       'paper': 'https://arxiv.org/abs/2306.05425',
       'code': 'https://github.com/Luodian/Otter'
     },
-    abstract: 'High-quality instructions and responses are essential for the zero-shot performance of large language models on interactive natural language tasks. For interactive vision-language tasks involving intricate visual scenes, a large quantity of diverse and creative instruction-response pairs should be imperative to tune vision-language models (VLMs). Nevertheless, the current availability of vision-language instruction-response pairs in terms of quantity, diversity, and creativity remains limited, posing challenges to the generalization of interactive VLMs. Here we present MultI-Modal In-Context Instruction Tuning (MIMIC-IT), a dataset comprising 2.8 million multimodal instruction-response pairs, with 2.2 million unique instructions derived from images and videos. Each pair is accompanied by multi-modal in-context information, forming conversational contexts aimed at empowering VLMs in perception, reasoning, and planning. The instruction-response collection process, dubbed as Syphus, is scaled using an automatic annotation pipeline that combines human expertise with GPT\'s capabilities. Using the MIMIC-IT dataset, we train a large VLM named Otter. Based on extensive evaluations conducted on vision-language benchmarks, it has been observed that Otter demonstrates remarkable proficiency in multi-modal perception, reasoning, and in-context learning. Human evaluation reveals it effectively aligns with the user\'s intentions. We release the MIMIC-IT dataset, instruction-response collection pipeline, benchmarks, and the Otter model.',
-    ref: "mimicit"
-  },
-  {
-    title: 'Otter: A Multi-Modal Model with In-Context Instruction Tuning',
-    author: 'Bo Li*, Yuanhan Zhang*, Liangyu Chen*, Jinghao Wang*, Jingkang Yang, Ziwei Liu#',
-    conference: 'arXiv',
-    time: '2023-05',
-    link: {
-      'paper': 'https://arxiv.org/abs/2305.03726',
-      'code': 'https://github.com/Luodian/Otter'
-    },
-    abstract: 'Large Language Models (LLMs) have exhibited exceptional universal aptitude as few/zero-shot learners for numerous tasks, thanks to their pre-training on large-scale text data. GPT-3 is a prominent LLM that has showcased significant capabilities in this regard. Furthermore, variants of GPT-3, namely InstructGPT and ChatGPT, equipped with instruction tuning, have proven effective in interpreting natural language instructions to perform complex real-world tasks. In this paper, we propose to introduce instruction tuning into multi-modal models, motivated by the Flamingo model\'s upstream interleaved format pretraining dataset. We adopt a similar approach to construct our MultI-Modal In-Context Instruction Tuning (MIMIC-IT) dataset. We then introduce Otter, a multi-modal model based on OpenFlamingo (open-sourced version of DeepMind\'s Flamingo), trained on MIMIC-IT and showcasing improved instruction-following ability and in-context learning. We also optimize OpenFlamingo\'s implementation for researchers, democratizing the required training resources from 1*A100 GPU to 4*RTX-3090 GPUs, and integrate both OpenFlamingo and Otter into Hugging Face Transformers for more researchers to incorporate the models into their customized training and inference pipelines.',
+    abstract: 'Recent advances in Large Multimodal Models (LMMs) have unveiled great potential as visual assistants. However, most existing works focus on responding to individual instructions or using previous dialogues for contextual understanding. There is little discussion on employing both images and text as in-context examples to enhance the instruction following capability. To bridge this gap, we introduce the Otter model to leverage both textual and visual in-context examples for instruction tuning. Specifically, Otter builds upon Flamingo with Perceiver architecture, and has been instruction tuned for general purpose multi-modal assistant. Otter seamlessly processes multi-modal inputs, supporting modalities including text, multiple images, and dynamic video content. To support the training of Otter, we present the MIMIC-IT (MultI-Modal In-Context Instruction Tuning) dataset, which encompasses over 3 million multi-modal instruction-response pairs, including approximately 2.2 million unique instructions across a broad spectrum of images and videos. MIMIC-IT has been carefully curated to feature a diverse array of in-context examples for each entry. Comprehensive evaluations suggest that instruction tuning with these in-context examples substantially enhances model convergence and generalization capabilities. Notably, the extensive scenario coverage provided by the MIMIC-IT dataset empowers the Otter model to excel in tasks involving complex video and multi-image understanding.',
     ref: "otter"
-  }
-  ,
+  },
   {
     title: 'TransPatch: A Transformer-based Generator for Accelerating Transferable Patch Generation in Adversarial Attacks Against Object Detection Models',
     author: 'Jinghao Wang, Chenling Cui, Xuejun Wen#, Jie Shi',
-    conference: 'European Conference on Computer Vision (ECCV) Workshop on Adversarial Robustness in the Real World (AROW), 2022',
+    conference: 'European Conference on Computer Vision Workshop on Adversarial Robustness in the Real World (ECCVW), 2022',
     time: '2022-08',
     link: {
       'paper': 'https://link.springer.com/chapter/10.1007/978-3-031-25056-9_21'

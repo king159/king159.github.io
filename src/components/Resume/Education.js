@@ -12,7 +12,7 @@ const Education = ({ data }) => (
         {data.map((degree) => (
             <Degree
                 data={degree}
-                key={degree.school}
+                key={degree.degree}
             />
         ))}
     </div>
