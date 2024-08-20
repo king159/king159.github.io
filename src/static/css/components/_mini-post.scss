@@ -50,40 +50,20 @@
   border: solid 0.2em _palette(border);
   margin: 0 0 _size(element-margin);
 
-  .conference {
+  .conference{
     font-style: italic;
-  }
-
-  .image {
-    overflow: hidden;
-    width: 100%;
-
-    img {
-      @include vendor('transition', 'transform #{_duration(transition)} ease-out');
-      width: 100%;
-    }
-  }
-
-  ul {
-    list-style: disc;
-    padding-top: 2em;
-    margin: -1.5em 0 0 1em;
+    margin: 0 2% 0 2%;
   }
 
   p {
-    margin: 0.7em 0 0 0.5em;
+    margin: 0 2% 0.2em 2%;
   }
 
-  a {
-    color: red;
-  }
-
-
-  h3 {
-    font-size: 1.3em;
-    margin: 0 0 0 0em;
-    text-transform: none;
+  .publication-title {
+    font-size: 1.6em;
+    margin: 0.5em 1.5em 0.5em 0em;
     text-align: center;
+    font-weight: 1000;
   }
 }
 

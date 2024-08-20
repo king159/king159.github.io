@@ -16,8 +16,8 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={About} />
         <Route path="/about" component={About} />
-        <Route path="/resume" component={Resume} />
         <Route path="/publication" component={Publication} />
+        <Route path="/resume" component={Resume} />
         <Route component={NotFound} status={404} />
       </Switch>
     </Suspense>

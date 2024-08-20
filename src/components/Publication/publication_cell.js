@@ -10,7 +10,7 @@ const PublicationCell = ({ data }) => {
     return (
         <div className="cell-container">
             <article className="mini-post">
-                <p><h3> {data.title}</h3></p>
+                <div className='publication-title'>{data.title}</div>
                 <p>
                     {data.author.split(",").map((item, index) => {
                         const trimmedItem = item.trim();
@@ -28,19 +28,21 @@ const PublicationCell = ({ data }) => {
                     })}
                 </p>
                 <p className="conference">{data.conference}</p>
+                <p className='conference'>{data.time}</p>
+                <p>
                 {data.link.code ?
-                    <Box sx={{ '& button': { m: 1 } }}>
+                    <Box sx={{ '& button': { "margin-right": "1em"} }}>
                         <Button size="small" endIcon={<SendIcon />} onClick={() => window.open(data.link.paper)}>{"paper"}</Button>
                         <Button size="small" endIcon={<GitHubIcon />} onClick={() => window.open(data.link.code)}>{"code"}</Button>
                     </Box>
                     :
-                    <p>
-                        <Button size="small" endIcon={<SendIcon />} onClick={() => window.open(data.link.paper)}>{"paper"}</Button>
-                    </p>
+                    <Box sx={{ '& button': { "margin-right": "1em"} }}>
+                    <Button size="small" endIcon={<SendIcon />} onClick={() => window.open(data.link.paper)}>{"paper"}</Button>
+                    </Box>
                 }
-                <p className='conference'>{data.time}</p>
+                </p>
                 {showAbstract ? <p>{data.abstract}</p> : <p></p>}
-                <Button size="small" onClick={() => setShowAbstract(!showAbstract)}>{showAbstract ? 'Hide' : 'Show Abstract'}</Button>
+                <Button size="small" onClick={() => setShowAbstract(!showAbstract)}>{showAbstract ? 'Hide Abstract' : 'Show Abstract'}</Button>
             </article>
         </div>
     );

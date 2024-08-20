@@ -58,7 +58,6 @@ export default function Publication() {
                         <h2 data-testid="heading"><Link to="/publication">Publication</Link></h2>
                     </div>
                 </header>
-                <div>Filter:</div>
                 <FormControlLabel
                     label="All"
                     control={<Checkbox defaultChecked checked={showAll} onChange={handleChangeAll} />}
