@@ -4,7 +4,7 @@ const degrees = [
     schoolLink: 'https://www.cuhk.edu.hk/english/index.html',
     degreeLink: 'https://www.cse.cuhk.edu.hk/admission/mphil-phd/',
     degree: 'Ph.D. in Computer Science and Engineering',
-    year: 'Aug 2024 - present',
+    year: 'Jan 2025 - present',
     location: 'Hong Kong, China',
   },
   {
@@ -12,7 +12,7 @@ const degrees = [
     schoolLink: 'https://www.ntu.edu.sg/',
     degreeLink: 'https://www.ntu.edu.sg/education/graduate-programme/scse-master-of-engineering',
     degree: 'Master of Engineering (MEng) (by Research) in Computer Science',
-    year: 'Aug 2023 - May 2024',
+    year: 'Aug 2023 - Aug 2024',
     location: 'Singapore',
   },
   {

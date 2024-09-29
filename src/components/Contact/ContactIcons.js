@@ -12,7 +12,7 @@ const ContactIcons = () => (
                 <a href={s.link}>
                     <FontAwesomeIcon icon={s.icon} /> {s.description}
                 </a>
-            </li>
+            </li>   
         ))}
     </ul>
 );
