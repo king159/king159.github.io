@@ -1,6 +1,17 @@
 const data = [
   {
-    title: 'AID: Attention Interpolation of Text-to-Image Diffusion',
+    title: "FreeMorph: Tuning-Free Generalized Image Morphing with Diffusion Model",
+    author: "Yukang Cao, Chenyang Si, Jinghao Wang, Ziwei Liu#",
+    conference: "under review",
+    time: "2024-10",
+    link: {
+      'paper': 'google.com',
+      'github': 'google.com'
+    },
+    abstract: "We present FreeMorph, the first tuning-free method for image morphing that accommodates inputs with varying semantics or layouts. Unlike existing methods, which rely on fine-tuning pre-trained diffusion models and are limited by time constraints and semantic/layout discrepancies, FreeMorph delivers high-fidelity image morphing without extensive training. Despite its efficiency and potential, tuning-free methods still face challenges in maintaining high-quality image morphing due to the non-linear nature of the multi-step denoising process and bias inherited from the pre-trained diffusion model. In this paper, we introduce FreeMorph to address this challenge by integrating two key innovations. 1) We first propose a guidance-aware spherical interpolation design that incorporates the explicit guidance from the input images by modifying the self-attention modules, addressing identity loss, and ensuring consistent transitions throughout the generated sequences. 2) We further introduce a step-oriented motion flow that blends self-attention modules derived from each input image to achieve controlled and directional transitions that respect both input images. Our extensive evaluations demonstrate that FreeMorph outperforms existing methods with training that is 10x~50x faster, establishing a new state-of-the-art for image morphing."
+  },
+  {
+    title: "AID: Attention Interpolation of Text-to-Image Diffusion",
     author: "Qiyuan He, Jinghao Wang, Ziwei Liu, Angela Yao#",
     conference: "Neural Information Processing Systems (NeurIPS), 2024",
     time: '2024-03',
