@@ -1,16 +1,16 @@
 const routes = [
   {
     index: true,
-    label: 'Wang Jinghao',
-    path: '/about',
+    label: "Wang Jinghao",
+    path: "/about",
   },
   {
-    label: 'About',
-    path: '/about',
+    label: "About",
+    path: "/about",
   },
   {
-    label: 'Publication',
-    path: '/publication',
+    label: "Publication",
+    path: "/publication",
   },
 ];
 

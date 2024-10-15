@@ -1,15 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const Job = ({ data }) => (
   <article className="jobs-container">
     <table cellSpacing="10">
       <tr>
-        <td><b> {data.company} </b> </td>
+        <td>
+          <b> {data.company} </b>{" "}
+        </td>
         <td align="right">{data.dateRange}</td>
       </tr>
       <tr>
-        <td> <b> {data.position} </b> </td>
+        <td>
+          {" "}
+          <b> {data.position} </b>{" "}
+        </td>
         <td align="right">{data.location}</td>
       </tr>
     </table>

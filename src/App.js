@@ -1,25 +1,23 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Main from './layouts/Main';
-import './static/css/main.scss';
+import React, { Suspense, lazy } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from "./layouts/Main";
+import "./static/css/main.scss";
 
 const { PUBLIC_URL } = process.env;
 
-const About = lazy(() => import('./pages/About'));
-const NotFound = lazy(() => import('./pages/NotFound'));
-const Resume = lazy(() => import('./pages/Resume'));
-const Publication = lazy(() => import('./pages/Publication'));
+const About = lazy(() => import("./pages/About"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Publication = lazy(() => import("./pages/Publication"));
 
 const App = () => (
   <BrowserRouter basename={PUBLIC_URL}>
     <Suspense fallback={<Main />}>
-      <Switch>
-        <Route exact path="/" component={About} />
-        <Route path="/about" component={About} />
-        <Route path="/publication" component={Publication} />
-        <Route path="/resume" component={Resume} />
-        <Route component={NotFound} status={404} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<About />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/publication" element={<Publication />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </Suspense>
   </BrowserRouter>
 );
