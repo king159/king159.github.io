@@ -1,22 +1,22 @@
-import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons/faEnvelope";
-import { faHourglass } from "@fortawesome/free-regular-svg-icons/faHourglass";
+import SchoolIcon from "@mui/icons-material/School";
+import EmailIcon from "@mui/icons-material/Email";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const data = [
   {
     link: "jinghao003@e.ntu.edu.sg",
     description: "Email",
-    icon: faEnvelope,
+    icon: EmailIcon,
   },
   {
     link: "https://github.com/king159",
     description: "Github",
-    icon: faGithub,
+    icon: GitHubIcon,
   },
   {
     link: "https://scholar.google.com/citations?hl=en&user=G8ztcD8AAAAJ",
     description: "Google Scholar",
-    icon: faHourglass,
+    icon: SchoolIcon,
   },
 ];
 

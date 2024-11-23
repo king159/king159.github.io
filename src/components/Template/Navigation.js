@@ -1,34 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import * as React from 'react';
+import Grid from '@mui/material/Grid2';
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
-import Hamburger from "./Hamburger";
+
 import routes from "../../data/routes";
 
-// Websites Navbar, displays routes defined in 'src/data/routes'
-const Navigation = () => (
-  <header id="header">
-    <h1 className="index-link">
-      {routes
-        .filter((l) => l.index)
-        .map((l) => (
-          <Link key={l.label} to={l.path}>
-            {l.label}
-          </Link>
-        ))}
-    </h1>
-    <nav className="links">
-      <ul>
-        {routes
-          .filter((l) => !l.index)
-          .map((l) => (
-            <li key={l.label}>
-              <Link to={l.path}>{l.label}</Link>
-            </li>
-          ))}
-      </ul>
-    </nav>
-    <Hamburger />
+export default function Navigation() {
+  return (<header id="header">
+    <Grid container sx={{ marginLeft: '2em' }}>
+      {routes.map((label) => (
+          <Link to={label.path}> <Button sx={{ color: "black"}}>{label.label}</Button> </Link>
+      ))}
+    </Grid>
   </header>
-);
-
-export default Navigation;
+  );
+}

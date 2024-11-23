@@ -12,10 +12,9 @@ import Collapse from "@mui/material/Collapse";
 import { styled } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import IconButton from "@mui/material/IconButton";
-import CardMedia from "@mui/material/CardMedia";
 
-async function showGithubStars(github) {
-  const url = github.split("/").slice(-2).join("/");
+async function showGithubStars(githubLink) {
+  const url = githubLink.split("/").slice(-2).join("/");
   let githubRepoData = await fetch(
     `https://img.shields.io/github/stars/${url}`,
   );
@@ -52,6 +51,21 @@ const ExpandMore = styled((props) => {
   ],
 }));
 
+const PublicationTypography = styled(Typography)({
+  fontSize: "28px",
+  margin: "0.5em 1.2em 1em 0em",
+  lineHeight: "160%",
+  fontWeight: "400",
+  letterSpacing: "-0.02em",
+  fontFamily: "Söhne, sans-serif",
+  color: "#080808",
+});
+
+const StrongAuthor = styled("strong")({
+  color: "#1a1a1a",
+  fontSize: "20px",
+});
+
 export default function PublicationCell({ data }) {
   const [showAbstract, setShowAbstract] = useState(false);
   const [githubStars, setGithubStars] = useState("0");
@@ -65,35 +79,15 @@ export default function PublicationCell({ data }) {
   }, [data.link.github]);
 
   return (
-    <Card sx={{ display: "flex" }}>
+    <Card sx={{ display: "flex", marginBottom: "2em" }}>
       <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <CardContent sx={{ flex: "1 0 auto" }}>
-          <Typography
-            sx={{
-              fontSize: "28px",
-              margin: "0.5em 1.5em 0.5em 0em",
-              textAlign: "center",
-              lineHeight: "160%",
-              fontWeight: "400",
-              letterSpacing: "-0.02em",
-              fontFamily: "Söhne, sans-serif",
-              color: "#080808",
-            }}
-          >
+        <CardContent>
+          <PublicationTypography sx={{ textAlign: "left" }}>
             {data.title}
-          </Typography>
-          {/* Render authors */}
-          <Typography
-            sx={{
-              fontSize: "18px",
-              margin: "0.5em 1.5em 0.5em 0em",
-              textAlign: "left",
-              lineHeight: "150%",
-              fontWeight: "400",
-              letterSpacing: "-0.02em",
-              fontFamily: "Söhne, sans-serif",
-              color: "#080808",
-            }}
+          </PublicationTypography>
+
+          <PublicationTypography
+            sx={{ fontSize: "18px" }}
           >
             {data.author.split(",").map((item, index) => {
               const trimmedItem = item.trim();
@@ -104,7 +98,7 @@ export default function PublicationCell({ data }) {
               return (
                 <span key={index}>
                   {isHighlighted ? (
-                    <b>{trimmedItem}</b>
+                    <StrongAuthor>{trimmedItem}</StrongAuthor>
                   ) : convertedItem ? (
                     <>
                       {trimmedItem.replace("#", "")}
@@ -119,57 +113,48 @@ export default function PublicationCell({ data }) {
                 </span>
               );
             })}
-          </Typography>
-          <Typography
+          </PublicationTypography>
+          <PublicationTypography
             sx={{
               fontSize: "18px",
-              margin: "0.5em 1.5em 0.5em 0em",
-              textAlign: "left",
-              lineHeight: "150%",
-              fontWeight: "400",
-              letterSpacing: "-0.02em",
-              fontFamily: "Söhne, sans-serif",
-              color: "#080808",
+              fontStyle: "italic",
             }}
           >
             {data.conference}
-          </Typography>
-          <Typography
+          </PublicationTypography>
+          <PublicationTypography
             sx={{
               fontSize: "18px",
-              margin: "0.5em 1.5em 0.5em 0em",
-              textAlign: "left",
-              lineHeight: "150%",
-              fontWeight: "400",
-              letterSpacing: "-0.02em",
-              fontFamily: "Söhne, sans-serif",
-              color: "#080808",
             }}
           >
             {data.time}
-          </Typography>
-          {/* Render paper and GitHub buttons */}
+          </PublicationTypography>
+          <PublicationTypography variant="body2" sx={{ color: 'text.secondary', fontSize: "16px" }}>
+            TL;DR: {data.tldr}
+          </PublicationTypography>
           <Box sx={{ "& button": { marginRight: "1em" } }}>
+            {/* Render paper and GitHub buttons */}
             <Button
               size="small"
               endIcon={<SendIcon />}
               onClick={() => window.open(data.link.paper)}
+              sx={{ color: "Teal" }}
             >
               {"paper"}
             </Button>
-
             {data.link.github && (
               <Button
                 size="small"
                 endIcon={<GitHubIcon />}
                 onClick={() => window.open(data.link.github)}
+                sx={{ color: "black" }}
               >
-                {"github"}
+                {"Code"}
               </Button>
             )}
             {data.link.github && (
               <Badge badgeContent={`${githubStars}`} sx={{ color: "black" }}>
-                <StarRateIcon sx={{ color: "black" }} />
+                <StarRateIcon sx={{ color: "Gold" }} />
               </Badge>
             )}
             {/* Render abstract toggle */}
@@ -183,31 +168,14 @@ export default function PublicationCell({ data }) {
             </ExpandMore>
             <Collapse in={showAbstract} timeout="auto" unmountOnExit>
               <CardContent>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    margin: "0.5em 1.5em 0.5em 0em",
-                    textAlign: "left",
-                    lineHeight: "150%",
-                    fontWeight: "400",
-                    letterSpacing: "-0.02em",
-                    fontFamily: "Söhne, sans-serif",
-                    color: "#080808",
-                  }}
-                >
+                <PublicationTypography sx={{ fontSize: "16px" }}>
                   {data.abstract}
-                </Typography>
+                </PublicationTypography>
               </CardContent>
             </Collapse>
           </Box>
         </CardContent>
       </Box>
-      <CardMedia
-        component="img"
-        sx={{ width: 151 }}
-        image="/public/OIP-C.jpg"
-        alt="Paella dish"
-      />
     </Card>
   );
 }

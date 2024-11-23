@@ -1,6 +1,6 @@
 import React from "react";
 
-import ContactIcons from "../Contact/ContactIcons";
+import ContactIcons from "../Contact/contact_icons";
 
 // const { PUBLIC_URL } = process.env; // set automatically from package.json:homepage
 

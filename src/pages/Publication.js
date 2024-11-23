@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Typography from "@mui/material/Typography";
 
 import Main from "../layouts/Main";
-import Checkbox from "@mui/material/Checkbox";
 import PublicationCell from "../components/Publication/publication_cell";
 import data from "../data/publication_data";
-import FormControlLabel from "@mui/material/FormControlLabel";
+import PublicationFilter from "../components/Publication/publication_filter";
 
 function checkFirstAuthor(author) {
   return (
@@ -29,10 +28,10 @@ function filter(
   showAll,
 ) {
   return (
-    ((showFirstAuthor ? checkFirstAuthor(publication.author) : true) &&
+    (((showFirstAuthor ? checkFirstAuthor(publication.author) : true) &&
       (showPublished ? checkPublished(publication.conference) : true) &&
       (showCurrentYear ? checkCurrentYear(publication.time) : true)) ||
-    showAll
+      showAll) && showAll
   );
 }
 
@@ -41,91 +40,36 @@ export default function Publication() {
   const [showPublished, setShowPublished] = React.useState(false);
   const [showCurrentYear, setShowCurrentYear] = React.useState(false);
   const [showAll, setShowAll] = React.useState(true);
-  const handleChangeAll = (event) => {
-    setShowAll(event.target.checked);
-    setShowFirstAuthor(false);
-    setShowPublished(false);
-    setShowCurrentYear(false);
-  };
-  const handleChangeFirstAuthor = (event) => {
-    setShowFirstAuthor(event.target.checked);
-    setShowAll(false);
-  };
-  const handleChangePublished = (event) => {
-    setShowPublished(event.target.checked);
-    setShowAll(false);
-  };
-  const handleChangeCurrentYear = (event) => {
-    setShowCurrentYear(event.target.checked);
-    setShowAll(false);
-  };
+
   return (
     <Main title="Publication">
-      <article className="post" id="projects">
-        <header>
-          <div className="title">
-            <h2 data-testid="heading">
-              <Link to="/publication">Publication</Link>
-            </h2>
-          </div>
-        </header>
-        <FormControlLabel
-          label="All"
-          control={
-            <Checkbox
-              defaultChecked
-              checked={showAll}
-              onChange={handleChangeAll}
-            />
-          }
-        />
-        <FormControlLabel
-          label="First Author"
-          control={
-            <Checkbox
-              checked={showFirstAuthor}
-              onChange={handleChangeFirstAuthor}
-            />
-          }
-        />
-        <FormControlLabel
-          label="Published/Accepted"
-          control={
-            <Checkbox
-              checked={showPublished}
-              onChange={handleChangePublished}
-            />
-          }
-        />
-        <FormControlLabel
-          label={`Since ${new Date().getFullYear()}`}
-          control={
-            <Checkbox
-              checked={showCurrentYear}
-              onChange={handleChangeCurrentYear}
-            />
-          }
-        />
-        {data.map(
-          (publication) =>
-            filter(
-              publication,
-              showFirstAuthor,
-              showPublished,
-              showCurrentYear,
-              showAll,
-            ) && <PublicationCell data={publication} key={publication.title} />,
-        )}
-        {data.filter((publication) =>
+      <ul>
+        {" "}
+        <Typography sx={{ mt: 4, mb: 2 }} variant="h6">
+          Publication
+        </Typography>
+      </ul>
+      <PublicationFilter showAll={showAll} setShowAll={setShowAll} showFirstAuthor={showFirstAuthor} setShowFirstAuthor={setShowFirstAuthor} showPublished={showPublished} setShowPublished={setShowPublished} showCurrentYear={showCurrentYear} setShowCurrentYear={setShowCurrentYear} />
+      {data.map(
+        (publication) =>
           filter(
             publication,
             showFirstAuthor,
             showPublished,
             showCurrentYear,
-            showAll,
-          ),
-        ).length === 0 && <p>No publication to show</p>}
-      </article>
+            showAll
+          ) && <PublicationCell data={publication} key={publication.title} />,
+      )}
+      {/* in case no publication to show */}
+      {data.filter((publication) =>
+        filter(
+          publication,
+          showFirstAuthor,
+          showPublished,
+          showCurrentYear,
+          showAll,
+        ),
+      ).length === 0 && <Typography>No publication to show</Typography>}
     </Main>
   );
 }

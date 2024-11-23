@@ -1,10 +1,5 @@
 const routes = [
   {
-    index: true,
-    label: "Wang Jinghao",
-    path: "/about",
-  },
-  {
     label: "About",
     path: "/about",
   },
