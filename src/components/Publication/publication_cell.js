@@ -86,9 +86,7 @@ export default function PublicationCell({ data }) {
             {data.title}
           </PublicationTypography>
 
-          <PublicationTypography
-            sx={{ fontSize: "18px" }}
-          >
+          <PublicationTypography sx={{ fontSize: "18px" }}>
             {data.author.split(",").map((item, index) => {
               const trimmedItem = item.trim();
               const isHighlighted =
@@ -129,7 +127,10 @@ export default function PublicationCell({ data }) {
           >
             {data.time}
           </PublicationTypography>
-          <PublicationTypography variant="body2" sx={{ color: 'text.secondary', fontSize: "16px" }}>
+          <PublicationTypography
+            variant="body2"
+            sx={{ color: "text.secondary", fontSize: "16px" }}
+          >
             TL;DR: {data.tldr}
           </PublicationTypography>
           <Box sx={{ "& button": { marginRight: "1em" } }}>

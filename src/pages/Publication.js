@@ -31,7 +31,8 @@ function filter(
     (((showFirstAuthor ? checkFirstAuthor(publication.author) : true) &&
       (showPublished ? checkPublished(publication.conference) : true) &&
       (showCurrentYear ? checkCurrentYear(publication.time) : true)) ||
-      showAll) && showAll
+      showAll) &&
+    showAll
   );
 }
 
@@ -49,7 +50,16 @@ export default function Publication() {
           Publication
         </Typography>
       </ul>
-      <PublicationFilter showAll={showAll} setShowAll={setShowAll} showFirstAuthor={showFirstAuthor} setShowFirstAuthor={setShowFirstAuthor} showPublished={showPublished} setShowPublished={setShowPublished} showCurrentYear={showCurrentYear} setShowCurrentYear={setShowCurrentYear} />
+      <PublicationFilter
+        showAll={showAll}
+        setShowAll={setShowAll}
+        showFirstAuthor={showFirstAuthor}
+        setShowFirstAuthor={setShowFirstAuthor}
+        showPublished={showPublished}
+        setShowPublished={setShowPublished}
+        showCurrentYear={showCurrentYear}
+        setShowCurrentYear={setShowCurrentYear}
+      />
       {data.map(
         (publication) =>
           filter(
@@ -57,7 +67,7 @@ export default function Publication() {
             showFirstAuthor,
             showPublished,
             showCurrentYear,
-            showAll
+            showAll,
           ) && <PublicationCell data={publication} key={publication.title} />,
       )}
       {/* in case no publication to show */}

@@ -49,11 +49,7 @@ export default function AboutMeCell() {
                     </ListItemIcon>
                     <ListItemText
                       primary={item.firstLine}
-                      secondary={
-                        item.secondLine ? (
-                          item.secondLine
-                        ) : null
-                      }
+                      secondary={item.secondLine ? item.secondLine : null}
                     />
                   </ListItem>
                 ))}

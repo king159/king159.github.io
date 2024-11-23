@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import Tooltip from '@mui/material/Tooltip';
+import Tooltip from "@mui/material/Tooltip";
 
 import Contact from "../../data/contact";
 
@@ -47,7 +47,9 @@ export default function ContactIcons() {
         <div key={s.link}>
           <Tooltip disableFocusListener disableTouchListener title={s.link}>
             <Button
-              onClick={s.link.includes("https") ? handleClick : handleClickForEmail}
+              onClick={
+                s.link.includes("https") ? handleClick : handleClickForEmail
+              }
               startIcon={<s.icon />}
               sx={{ color: "black", textTransform: "none" }}
             >

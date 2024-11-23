@@ -6,8 +6,6 @@ import FormControl from "@mui/material/FormControl";
 import RadioGroup from "@mui/material/RadioGroup";
 
 export default function PublicationFilter(props) {
-
-
     const handleChangeAll = (event) => {
         props.setShowAll(event.target.checked);
         props.setShowFirstAuthor(false);
@@ -19,7 +17,11 @@ export default function PublicationFilter(props) {
         if (event.target.checked) {
             props.setShowAll(false);
         }
-        if (!props.showCurrentYear && !props.showPublished && !event.target.checked) {
+        if (
+            !props.showCurrentYear &&
+            !props.showPublished &&
+            !event.target.checked
+        ) {
             props.setShowAll(true);
         }
     };

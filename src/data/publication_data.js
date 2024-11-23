@@ -22,7 +22,7 @@ const data = [
     },
     abstract:
       "Conditional diffusion models can create unseen images in various settings, aiding image interpolation. Interpolation in latent spaces is well-studied, but interpolation with specific conditions like text or poses is less understood. Simple approaches, such as linear interpolation in the space of conditions, often result in images that lack consistency, smoothness, and fidelity. To that end, we introduce a novel training-free technique named Attention Interpolation via Diffusion (AID). Our key contributions include 1) proposing an inner/outer interpolated attention layer; 2) fusing the interpolated attention with self-attention to boost fidelity; and 3) applying beta distribution to selection to increase smoothness. We also present a variant, Prompt-guided Attention Interpolation via Diffusion (PAID), that considers interpolation as a condition-dependent generative process. This method enables the creation of new images with greater consistency, smoothness, and efficiency, and offers control over the exact path of interpolation. Our approach demonstrates effectiveness for conceptual and spatial interpolation.",
-    ref: "aid", 
+    ref: "aid",
     tldr: "A training-free technique for text interpolation in diffusion models.",
   },
   {
@@ -63,7 +63,7 @@ const data = [
     author: "Jinghao Wang, Chenling Cui, Xuejun Wen#, Jie Shi",
     conference:
       "European Conference on Computer Vision Workshop on Adversarial Robustness in the Real World (ECCV-W), 2022",
-    time: "2022-08",
+    time: "2023-02",
     link: {
       paper: "https://link.springer.com/chapter/10.1007/978-3-031-25056-9_21",
     },
