@@ -8,11 +8,10 @@ import routes from "../../data/routes";
 export default function Navigation() {
   return (
     <header id="header">
-      <Grid container sx={{ marginLeft: "2em" }}>
+      <Grid container sx={{ marginLeft: "3em" }}>
         {routes.map((label) => (
           <Link to={label.path}>
-            {" "}
-            <Button sx={{ color: "black" }}>{label.label}</Button>{" "}
+            <Button sx={{ color: "black", marginRight: "2em"}}>{label.label}</Button>
           </Link>
         ))}
       </Grid>

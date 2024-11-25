@@ -17,14 +17,16 @@ export default function AboutMeCell() {
     <div>
       <div>
         <ul>
-          {" "}
+        <Typography sx={{ mt: 4, mb: 2 }} variant="h6">
+          About
+        </Typography>
           <Typography
             sx={{ mt: 4, mb: 2 }}
             variant="h6"
             component="div"
             color="black"
           >
-            About Me
+            Biography
           </Typography>
         </ul>
         <Typography color="black">{aboutMeData}</Typography>
@@ -38,7 +40,7 @@ export default function AboutMeCell() {
               component="div"
               color="black"
             >
-              News
+              Updates
             </Typography>
             <Demo>
               <List>

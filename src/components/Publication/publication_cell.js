@@ -15,16 +15,21 @@ import IconButton from "@mui/material/IconButton";
 
 async function showGithubStars(githubLink) {
   const url = githubLink.split("/").slice(-2).join("/");
-  let githubRepoData = await fetch(
-    `https://img.shields.io/github/stars/${url}`,
-  );
-  // parse the svg file
-  let githubRepoDataText = await githubRepoData.text();
-  // find the number of stars
-  let githubStars = githubRepoDataText
-    .split("</text></a></g></svg>")[0]
-    .split(">")[31];
-  return githubStars;
+  try {
+    let githubRepoData = await fetch(
+      `https://img.shields.io/github/stars/${url}`,
+    );
+    // parse the svg file
+    let githubRepoDataText = await githubRepoData.text();
+    // find the number of stars
+    let githubStars = githubRepoDataText
+      .split("</text></a></g></svg>")[0]
+      .split(">")[31];
+    return githubStars;
+  }
+  catch {
+    return "0";
+  }
 }
 
 const ExpandMore = styled((props) => {
@@ -61,12 +66,37 @@ const PublicationTypography = styled(Typography)({
   color: "#080808",
 });
 
-const StrongAuthor = styled("strong")({
+const MeAsAuthor = styled("strong")({
   color: "#1a1a1a",
   fontSize: "20px",
 });
 
-export default function PublicationCell({ data , expandAllAbstract }) {
+const HighlightAuthor = (item, index, arr) => {
+  const trimmedItem = item.trim();
+  const isHighlighted =
+    trimmedItem === "Jinghao Wang" ||
+    trimmedItem === "Jinghao Wang*";
+  const convertedItem = trimmedItem.includes("#");
+  return (
+    <span key={index}>
+      {isHighlighted ? (
+        <MeAsAuthor>{trimmedItem}</MeAsAuthor>
+      ) : convertedItem ? (
+        <>
+          {trimmedItem.replace("#", "")}
+          <sup>&#x2709;</sup>
+        </>
+      ) : (
+        trimmedItem
+      )}
+      {arr.length === index + 1
+        ? ""
+        : "," + "\u00A0".repeat(2)}
+    </span>
+  );
+}
+
+export default function PublicationCell({ data, expandAllAbstract }) {
   const [showAbstract, setShowAbstract] = useState(false);
   const [githubStars, setGithubStars] = useState("0");
   const handleExpandClick = () => {
@@ -96,31 +126,9 @@ export default function PublicationCell({ data , expandAllAbstract }) {
           </PublicationTypography>
 
           <PublicationTypography sx={{ fontSize: "18px" }}>
-            {data.author.split(",").map((item, index) => {
-              const trimmedItem = item.trim();
-              const isHighlighted =
-                trimmedItem === "Jinghao Wang" ||
-                trimmedItem === "Jinghao Wang*";
-              const convertedItem = trimmedItem.includes("#");
-              return (
-                <span key={index}>
-                  {isHighlighted ? (
-                    <StrongAuthor>{trimmedItem}</StrongAuthor>
-                  ) : convertedItem ? (
-                    <>
-                      {trimmedItem.replace("#", "")}
-                      <sup>&#x2709;</sup>
-                    </>
-                  ) : (
-                    trimmedItem
-                  )}
-                  {data.author.split(",").length === index + 1
-                    ? ""
-                    : ",\u00A0\u00A0"}
-                </span>
-              );
-            })}
+            {data.author.split(",").map(HighlightAuthor)}
           </PublicationTypography>
+
           <PublicationTypography
             sx={{
               fontSize: "18px",
@@ -129,6 +137,7 @@ export default function PublicationCell({ data , expandAllAbstract }) {
           >
             {data.conference}
           </PublicationTypography>
+
           <PublicationTypography
             sx={{
               fontSize: "18px",
@@ -136,12 +145,14 @@ export default function PublicationCell({ data , expandAllAbstract }) {
           >
             {data.time}
           </PublicationTypography>
+
           <PublicationTypography
             variant="body2"
             sx={{ color: "text.secondary", fontSize: "16px" }}
           >
             TL;DR: {data.tldr}
           </PublicationTypography>
+
           <Box sx={{ "& button": { marginRight: "1em" } }}>
             {/* Render paper and GitHub buttons */}
             <Button
