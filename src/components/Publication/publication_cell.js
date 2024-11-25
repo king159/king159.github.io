@@ -66,7 +66,7 @@ const StrongAuthor = styled("strong")({
   fontSize: "20px",
 });
 
-export default function PublicationCell({ data }) {
+export default function PublicationCell({ data , expandAllAbstract }) {
   const [showAbstract, setShowAbstract] = useState(false);
   const [githubStars, setGithubStars] = useState("0");
   const handleExpandClick = () => {
@@ -77,6 +77,15 @@ export default function PublicationCell({ data }) {
       showGithubStars(data.link.github).then((value) => setGithubStars(value));
     }
   }, [data.link.github]);
+
+  useEffect(() => {
+    if (expandAllAbstract) {
+      setShowAbstract(true);
+    }
+    else {
+      setShowAbstract(false);
+    }
+  }, [expandAllAbstract]);
 
   return (
     <Card sx={{ display: "flex", marginBottom: "2em" }}>

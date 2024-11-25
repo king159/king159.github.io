@@ -1,10 +1,13 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
 
 import Main from "../layouts/Main";
 import PublicationCell from "../components/Publication/publication_cell";
 import data from "../data/publication_data";
 import PublicationFilter from "../components/Publication/publication_filter";
+
 
 function checkFirstAuthor(author) {
   return (
@@ -41,6 +44,11 @@ export default function Publication() {
   const [showPublished, setShowPublished] = React.useState(false);
   const [showCurrentYear, setShowCurrentYear] = React.useState(false);
   const [showAll, setShowAll] = React.useState(true);
+  const [expandAllAbstract, setExpandAllAbstract] = React.useState(false);
+
+  const handleExpandClick = () => {
+    setExpandAllAbstract(!expandAllAbstract);
+  }
 
   return (
     <Main title="Publication">
@@ -60,6 +68,15 @@ export default function Publication() {
         showCurrentYear={showCurrentYear}
         setShowCurrentYear={setShowCurrentYear}
       />
+      <FormControlLabel
+        label="Expand all abstract"
+        control={
+          <Checkbox
+            onChange={handleExpandClick}
+          />
+        }
+      />
+
       {data.map(
         (publication) =>
           filter(
@@ -68,7 +85,7 @@ export default function Publication() {
             showPublished,
             showCurrentYear,
             showAll,
-          ) && <PublicationCell data={publication} key={publication.title} />,
+          ) && <PublicationCell data={publication} key={publication.title} expandAllAbstract={expandAllAbstract} />,
       )}
       {/* in case no publication to show */}
       {data.filter((publication) =>
