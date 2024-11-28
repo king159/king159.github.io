@@ -45,7 +45,12 @@ export default function ContactIcons() {
     <ul className="icons">
       {Contact.map((s) => (
         <div key={s.link}>
-          <Tooltip disableFocusListener disableTouchListener title={s.link}>
+          <Tooltip
+            disableFocusListener
+            disableTouchListener
+            title={s.link}
+            placement="left-start"
+          >
             <Button
               onClick={
                 s.link.includes("https") ? handleClick : handleClickForEmail

@@ -2,15 +2,14 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { pink } from '@mui/material/colors';
-import AutoStoriesOutlinedIcon from '@mui/icons-material/AutoStoriesOutlined';
-import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import { pink } from "@mui/material/colors";
+import AutoStoriesOutlinedIcon from "@mui/icons-material/AutoStoriesOutlined";
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 
 import Main from "../layouts/Main";
 import PublicationCell from "../components/Publication/publication_cell";
 import data from "../data/publication_data";
 import PublicationFilter from "../components/Publication/publication_filter";
-
 
 function checkFirstAuthor(author) {
   return (
@@ -64,15 +63,13 @@ export default function Publication() {
 
   const handleExpandClick = () => {
     setExpandAllAbstract(!expandAllAbstract);
-  }
+  };
 
   return (
     <Main title="Publication">
-      <ul>
-        <Typography sx={{ mt: 4, mb: 2 }} variant="h6">
-          Publication
-        </Typography>
-      </ul>
+      <Typography sx={{ mt: 4, mb: 2 }} variant="h6">
+        Publication
+      </Typography>
       {/* filter */}
       <PublicationFilter
         showAll={showAll}
@@ -90,12 +87,15 @@ export default function Publication() {
       />
       {/* expand all abstract */}
       <FormControlLabel
-        label={expandAllAbstract ? "Collapse all abstract" : "Expand all abstract"}
+        label={
+          expandAllAbstract ? "Collapse all abstract" : "Expand all abstract"
+        }
         control={
           <Checkbox
             onChange={handleExpandClick}
             sx={{
-              color: pink[800], '&.Mui-checked': {
+              color: pink[800],
+              "&.Mui-checked": {
                 color: pink[600],
               },
             }}
@@ -114,7 +114,13 @@ export default function Publication() {
             showConference,
             showJournal,
             showAll,
-          ) && <PublicationCell data={publication} key={publication.title} expandAllAbstract={expandAllAbstract} />,
+          ) && (
+            <PublicationCell
+              data={publication}
+              key={publication.title}
+              expandAllAbstract={expandAllAbstract}
+            />
+          ),
       )}
       {/* in case no publication to show */}
       {data.filter((publication) =>

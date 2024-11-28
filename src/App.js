@@ -8,6 +8,7 @@ const { PUBLIC_URL } = process.env;
 const About = lazy(() => import("./pages/About"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Publication = lazy(() => import("./pages/Publication"));
+const Posts = lazy(() => import("./pages/Posts"));
 
 const App = () => (
   <BrowserRouter basename={PUBLIC_URL}>
@@ -16,6 +17,7 @@ const App = () => (
         <Route path="/" element={<About />} />
         <Route path="/about" element={<About />} />
         <Route path="/publication" element={<Publication />} />
+        <Route path="/posts" element={<Posts />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

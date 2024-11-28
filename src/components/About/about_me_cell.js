@@ -1,9 +1,11 @@
-import { newsData, aboutMeData } from "../../data/about_me";
+import newsData from "../../data/news";
+import aboutMeData from "../../data/about_me";
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
@@ -17,9 +19,9 @@ export default function AboutMeCell() {
     <div>
       <div>
         <ul>
-        <Typography sx={{ mt: 4, mb: 2 }} variant="h6">
-          About
-        </Typography>
+          <Typography sx={{ mt: 4, mb: 2 }} variant="h6">
+            About
+          </Typography>
           <Typography
             sx={{ mt: 4, mb: 2 }}
             variant="h6"
@@ -46,13 +48,15 @@ export default function AboutMeCell() {
               <List>
                 {newsData.map((item) => (
                   <ListItem>
-                    <ListItemIcon>
-                      <item.icon />
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={item.firstLine}
-                      secondary={item.secondLine ? item.secondLine : null}
-                    />
+                    <ListItemButton onClick={() => window.open(item.link)}>
+                      <ListItemIcon>
+                        <item.icon />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={item.firstLine}
+                        secondary={item.secondLine ? item.secondLine : null}
+                      />
+                    </ListItemButton>
                   </ListItem>
                 ))}
               </List>

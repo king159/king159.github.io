@@ -26,8 +26,7 @@ async function showGithubStars(githubLink) {
       .split("</text></a></g></svg>")[0]
       .split(">")[31];
     return githubStars;
-  }
-  catch {
+  } catch {
     return "0";
   }
 }
@@ -74,8 +73,7 @@ const MeAsAuthor = styled("strong")({
 const HighlightAuthor = (item, index, arr) => {
   const trimmedItem = item.trim();
   const isHighlighted =
-    trimmedItem === "Jinghao Wang" ||
-    trimmedItem === "Jinghao Wang*";
+    trimmedItem === "Jinghao Wang" || trimmedItem === "Jinghao Wang*";
   const convertedItem = trimmedItem.includes("#");
   return (
     <span key={index}>
@@ -89,12 +87,10 @@ const HighlightAuthor = (item, index, arr) => {
       ) : (
         trimmedItem
       )}
-      {arr.length === index + 1
-        ? ""
-        : "," + "\u00A0".repeat(2)}
+      {arr.length === index + 1 ? "" : "," + "\u00A0".repeat(2)}
     </span>
   );
-}
+};
 
 export default function PublicationCell({ data, expandAllAbstract }) {
   const [showAbstract, setShowAbstract] = useState(false);
@@ -111,8 +107,7 @@ export default function PublicationCell({ data, expandAllAbstract }) {
   useEffect(() => {
     if (expandAllAbstract) {
       setShowAbstract(true);
-    }
-    else {
+    } else {
       setShowAbstract(false);
     }
   }, [expandAllAbstract]);
@@ -138,6 +133,7 @@ export default function PublicationCell({ data, expandAllAbstract }) {
             {data.conference}
           </PublicationTypography>
 
+          {/* Render time */}
           <PublicationTypography
             sx={{
               fontSize: "18px",
@@ -146,6 +142,7 @@ export default function PublicationCell({ data, expandAllAbstract }) {
             {data.time}
           </PublicationTypography>
 
+          {/* Render TL;DR */}
           <PublicationTypography
             variant="body2"
             sx={{ color: "text.secondary", fontSize: "16px" }}
@@ -154,7 +151,6 @@ export default function PublicationCell({ data, expandAllAbstract }) {
           </PublicationTypography>
 
           <Box sx={{ "& button": { marginRight: "1em" } }}>
-            {/* Render paper and GitHub buttons */}
             <Button
               size="small"
               endIcon={<SendIcon />}

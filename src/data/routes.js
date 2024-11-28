@@ -7,6 +7,10 @@ const routes = [
     label: "Publication",
     path: "/publication",
   },
+  {
+    label: "Posts",
+    path: "/posts",
+  },
 ];
 
 export default routes;

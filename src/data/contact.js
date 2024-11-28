@@ -1,8 +1,14 @@
 import SchoolIcon from "@mui/icons-material/School";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const data = [
+  {
+    link: "",
+    description: "Hong Kong",
+    icon: LocationOnIcon,
+  },
   {
     link: "jinghao003@e.ntu.edu.sg",
     description: "Email",

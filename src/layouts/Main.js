@@ -10,8 +10,8 @@ const Main = (props) => (
   <HelmetProvider>
     <Analytics />
     <Helmet
-      titleTemplate="%s | Wang Jinghao"
-      defaultTitle="Wang Jinghao"
+      titleTemplate="%s | Wang Jinghao（王靖淏）"
+      defaultTitle="Wang Jinghao（王靖淏）"
       defer={false}
     >
       {props.title && <title>{props.title}</title>}

@@ -1,19 +1,3 @@
-import ArticleIcon from "@mui/icons-material/Article";
-import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
-
-const newsData = [
-  {
-    firstLine: "AID has been accepted to NeurIPS.",
-    secondLine: "2024-09",
-    icon: ArticleIcon,
-  },
-  {
-    firstLine: "PairNet has been accepted to TPAMI.",
-    secondLine: "2024-08",
-    icon: ArticleOutlinedIcon,
-  },
-];
-
 const aboutMeData = (
   <div>
     He is a first year Ph.D student at{" "}
@@ -21,7 +5,11 @@ const aboutMeData = (
     specializing in multimodal large language model and image generation,
     supervised by{" "}
     <a href="https://www.cse.cuhk.edu.hk/~pheng/">Prof. Pheng-Ann Heng</a>.
+    Before that, he spent 5 years in the{" "}
+    <a href="https://www.ntu.edu.sg/">Nanyang Technological University</a>,
+    Singapore, where he received his B.Eng. and M.Eng. degrees in Computer
+    Science.
   </div>
 );
 
-export { newsData, aboutMeData };
+export default aboutMeData;
