@@ -11,8 +11,10 @@ import Typography from "@mui/material/Typography";
 import Collapse from "@mui/material/Collapse";
 import { styled } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import IconButton from "@mui/material/IconButton";
 import CardMedia from "@mui/material/CardMedia";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
 
 const { PUBLIC_URL } = process.env;
 
@@ -34,38 +36,22 @@ async function showGithubStars(githubLink) {
   }
 }
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme }) => ({
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-  variants: [
-    {
-      props: ({ expand }) => !expand,
-      style: {
-        transform: "rotate(0deg)",
-      },
-    },
-    {
-      props: ({ expand }) => !!expand,
-      style: {
-        transform: "rotate(180deg)",
-      },
-    },
-  ],
-}));
-
 const PublicationTypography = styled(Typography)({
   fontSize: "28px",
-  margin: "0.5em 0em 1em 0em",
+  margin: "0.5em 0em 0.25em 0em",
   lineHeight: "160%",
   fontWeight: "400",
   letterSpacing: "-0.02em",
   fontFamily: "Söhne, sans-serif",
   color: "#080808",
+});
+
+const BibTeXTypography = styled(Typography)({
+  fontFamily: "Arial, sans-serif",
+  margin: "20px",
+  padding: "15px",
+  borderRadius: "5px",
+  whiteSpace: "pre-wrap",
 });
 
 const MeAsAuthor = styled("strong")({
@@ -95,6 +81,8 @@ const HighlightAuthor = (item, index, arr) => {
   );
 };
 
+const ColorArray = ["#003547", "#005E54", "#C2BB00", "#F24405", "#ED8B16"];
+
 const MyCardMedia = styled(CardMedia)(() => ({
   flexShrink: 0,
   width: "40%",
@@ -106,9 +94,15 @@ const MyCardMedia = styled(CardMedia)(() => ({
 export default function PublicationCell({ data, expandAllAbstract }) {
   const [showAbstract, setShowAbstract] = useState(false);
   const [githubStars, setGithubStars] = useState("0");
+  const [showBibTeX, setShowBibTeX] = useState(false);
   const handleExpandClick = () => {
     setShowAbstract(!showAbstract);
   };
+
+  const handleBibTeXClick = () => {
+    setShowBibTeX(!showBibTeX);
+  };
+
   useEffect(() => {
     if (data.link.github) {
       showGithubStars(data.link.github).then((value) => setGithubStars(value));
@@ -128,81 +122,127 @@ export default function PublicationCell({ data, expandAllAbstract }) {
       <Box sx={{ display: "flex", flexDirection: "column" }}>
         <CardContent>
           {/* Render title */}
-          <PublicationTypography sx={{ textAlign: "center", fontSize: "26px", }}>
+          <PublicationTypography
+            sx={{
+              textAlign: "center",
+              fontSize: "26px",
+              paddingLeft: "1em",
+              paddingRight: "1em",
+              marginBottom: "1em",
+            }}
+          >
             {data.title}
           </PublicationTypography>
-
-          {/* Render authors */}
-          <PublicationTypography sx={{ fontSize: "18px" }}>
-            {data.author.split(",").map(HighlightAuthor)}
-          </PublicationTypography>
-
-          {/* Render conference */}
-          <PublicationTypography
-            sx={{
-              fontSize: "18px",
-              fontStyle: "italic",
-            }}
+          <Box
+            sx={{ display: "flex", flexDirection: "column", marginLeft: "2em" }}
           >
-            {data.conference}
-          </PublicationTypography>
+            {/* Render authors */}
+            <PublicationTypography sx={{ fontSize: "18px" }}>
+              {data.author.split(",").map(HighlightAuthor)}
+            </PublicationTypography>
 
-          {/* Render TL;DR */}
-          <PublicationTypography
-            variant="body2"
-            sx={{ color: "text.secondary", fontSize: "18px" }}
-          >
-            TL;DR: {data.tldr}
-          </PublicationTypography>
-          {/* Render time */}
-          <PublicationTypography
-            sx={{
-              fontSize: "16px",
-            }}
-          >
-            {data.time}
-          </PublicationTypography>
-
-          {/* Render buttons */}
-          <Box sx={{ "& button": { marginRight: "1em" } }}>
-            <Button
-              size="small"
-              endIcon={<SendIcon />}
-              onClick={() => window.open(data.link.paper)}
-              sx={{ color: "Teal" }}
+            {/* Render conference */}
+            <PublicationTypography
+              sx={{
+                fontSize: "18px",
+                fontStyle: "italic",
+              }}
             >
-              {"paper"}
-            </Button>
-            {data.link.github && (
+              {data.conference}
+            </PublicationTypography>
+
+            {/* Render TL;DR */}
+            <PublicationTypography
+              variant="body2"
+              sx={{
+                color: "text.secondary",
+                fontSize: "18px",
+              }}
+            >
+              TL;DR: {data.tldr}
+            </PublicationTypography>
+
+            {/* Render time */}
+            <PublicationTypography
+              sx={{
+                fontSize: "16px",
+              }}
+            >
+              {data.time}
+            </PublicationTypography>
+
+            <Box sx={{ "& button": { marginRight: "1em", padding: "0" } }}>
+              {/* Render paper */}
+              {data.bibtex && (
+                <Button
+                  size="small"
+                  endIcon={<SendIcon />}
+                  onClick={() => window.open(data.link.paper)}
+                  sx={{ color: ColorArray[0], textTransform: "none" }}
+                >
+                  {"Paper"}
+                </Button>
+              )}
+              {/* Render github link */}
+              {data.link.github && (
+                <Button
+                  size="small"
+                  endIcon={<GitHubIcon />}
+                  onClick={() => window.open(data.link.github)}
+                  sx={{ color: ColorArray[1], textTransform: "none" }}
+                >
+                  {"Code"}
+                </Button>
+              )}
+              {/* render github star */}
+              {data.link.github && (
+                <Badge
+                  badgeContent={`${githubStars}`}
+                  sx={{ color: "black", marginRight: "1em" }}
+                >
+                  <StarRateIcon sx={{ color: ColorArray[2] }} />
+                </Badge>
+              )}
+              {/* Render BibTeX */}
+              {data.bibtex && (
+                <Button
+                  size="small"
+                  endIcon={<FormatListBulletedIcon />}
+                  onClick={handleBibTeXClick}
+                  sx={{ color: ColorArray[3], textTransform: "none" }}
+                >
+                  {"BibTeX"}
+                </Button>
+              )}
+              <Dialog open={showBibTeX} onClose={handleBibTeXClick}>
+                <BibTeXTypography>{data.bibtex}</BibTeXTypography>
+                <DialogActions>
+                  <Button
+                    autoFocus
+                    onClick={handleBibTeXClick}
+                    sx={{ color: "black" }}
+                  >
+                    Close
+                  </Button>
+                </DialogActions>
+              </Dialog>
+              {/* Render abstract */}
               <Button
-                size="small"
-                endIcon={<GitHubIcon />}
-                onClick={() => window.open(data.link.github)}
-                sx={{ color: "black" }}
+                expand={showAbstract}
+                onClick={handleExpandClick}
+                sx={{ color: ColorArray[4], textTransform: "none" }}
+                endIcon={<ExpandMoreIcon />}
               >
-                {"Code"}
+                {"Abstract"}
               </Button>
-            )}
-            {data.link.github && (
-              <Badge badgeContent={`${githubStars}`} sx={{ color: "black" }}>
-                <StarRateIcon sx={{ color: "Gold" }} />
-              </Badge>
-            )}
-            {/* Render abstract toggle */}
-            <ExpandMore
-              expand={showAbstract}
-              onClick={handleExpandClick}
-              sx={{ color: "black", marginLeft: "0.5em" }}
-            >
-              <ExpandMoreIcon />
-            </ExpandMore>
-            <Collapse in={showAbstract} timeout="auto" unmountOnExit>
-              <CardContent>
-                <PublicationTypography sx={{ fontSize: "16px" }}>
-                  {data.abstract}
-                </PublicationTypography>
-              </CardContent>
-            </Collapse>
+              <Collapse in={showAbstract} timeout="auto" unmountOnExit>
+                <CardContent>
+                  <PublicationTypography sx={{ fontSize: "16px" }}>
+                    {data.abstract}
+                  </PublicationTypography>
+                </CardContent>
+              </Collapse>
+            </Box>
           </Box>
         </CardContent>
       </Box>
