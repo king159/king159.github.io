@@ -33,7 +33,7 @@ function checkConference(conference) {
   return !conference.includes("TPAMI");
 }
 
-function filter(
+function publicationFilterFunc(
   publication,
   showFirstAuthor,
   showPublished,
@@ -50,6 +50,33 @@ function filter(
       (showJournal ? checkJournal(publication.conference) : true)) ||
     showAll
   );
+}
+
+const countDic = {
+  "First Author": 0,
+  Published: 0,
+  "Current Year": 0,
+  Journal: 0,
+  Conference: 0,
+  All: data.length,
+};
+
+for (const publication of data) {
+  if (checkFirstAuthor(publication.author)) {
+    countDic["First Author"] += 1;
+  }
+  if (checkPublished(publication.conference)) {
+    countDic["Published"] += 1;
+  }
+  if (checkCurrentYear(publication.time)) {
+    countDic["Current Year"] += 1;
+  }
+  if (checkJournal(publication.conference)) {
+    countDic["Journal"] += 1;
+  }
+  if (checkConference(publication.conference)) {
+    countDic["Conference"] += 1;
+  }
 }
 
 export default function Publication() {
@@ -84,6 +111,7 @@ export default function Publication() {
         setShowJournal={setShowJournal}
         showConference={showConference}
         setShowConference={setShowConference}
+        countDic={countDic}
       />
       {/* expand all abstract */}
       <FormControlLabel
@@ -103,7 +131,7 @@ export default function Publication() {
       />
       {data.map(
         (publication) =>
-          filter(
+          publicationFilterFunc(
             publication,
             showFirstAuthor,
             showPublished,
@@ -121,7 +149,7 @@ export default function Publication() {
       )}
       {/* in case no publication to show */}
       {data.filter((publication) =>
-        filter(
+        publicationFilterFunc(
           publication,
           showFirstAuthor,
           showPublished,

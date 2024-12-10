@@ -96,7 +96,7 @@ export default function PublicationFilter(props) {
     <FormControl>
       <RadioGroup row>
         <FormControlLabel
-          label="All"
+          label={`All (${props.countDic["All"]})`}
           control={
             <Checkbox
               defaultChecked
@@ -106,7 +106,7 @@ export default function PublicationFilter(props) {
           }
         />
         <FormControlLabel
-          label="First Author"
+          label={`First Author (${props.countDic["First Author"]})`}
           control={
             <Checkbox
               checked={props.showFirstAuthor}
@@ -115,7 +115,7 @@ export default function PublicationFilter(props) {
           }
         />
         <FormControlLabel
-          label="Published/Accepted"
+          label={`Published/Accepted (${props.countDic["Published"]})`}
           control={
             <Checkbox
               checked={props.showPublished}
@@ -124,7 +124,7 @@ export default function PublicationFilter(props) {
           }
         />
         <FormControlLabel
-          label={`Since ${new Date().getFullYear()}`}
+          label={`Since ${new Date().getFullYear()} (${props.countDic["Current Year"]})`}
           control={
             <Checkbox
               checked={props.showCurrentYear}
@@ -133,7 +133,7 @@ export default function PublicationFilter(props) {
           }
         />
         <FormControlLabel
-          label="Journal Only"
+          label={`Journal Only (${props.countDic["Journal"]})`}
           control={
             <Checkbox
               checked={props.showJournal}
@@ -142,7 +142,7 @@ export default function PublicationFilter(props) {
           }
         />
         <FormControlLabel
-          label="Conference Only"
+          label={`Conference Only (${props.countDic["Conference"]})`}
           control={
             <Checkbox
               checked={props.showConference}
