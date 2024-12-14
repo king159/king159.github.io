@@ -5,7 +5,7 @@ import Checkbox from "@mui/material/Checkbox";
 import { blue } from "@mui/material/colors";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import TurnedInNotIcon from "@mui/icons-material/TurnedInNot";
-import Grow from "@mui/material/Grow";
+import Slide from "@mui/material/Slide";
 
 import Main from "../layouts/Main";
 import PublicationCell from "../components/Publication/publication_cell";
@@ -86,7 +86,7 @@ export default function Publication() {
     showConference: false,
   });
   const [expandAllAbstract, setExpandAllAbstract] = useState(false);
-
+  const containerRef = React.useRef(null);
   const handleExpandClick = () => {
     setExpandAllAbstract(!expandAllAbstract);
   };
@@ -123,7 +123,7 @@ export default function Publication() {
       {data.filter((publication) => checkPublication(publication, filters))
         .length === 0 && (
         <div>
-          <Grow in={true} timeout={500} unmountOnExit>
+          <Slide in={true} timeout={500} unmountOnExit direction="left">
             <Typography
               sx={{
                 mt: 4,
@@ -136,14 +136,16 @@ export default function Publication() {
             >
               No publication to show
             </Typography>
-          </Grow>
+          </Slide>
         </div>
       )}
 
       {data.map((publication) => {
         return (
-          <Grow
+          <Slide
             in={checkPublication(publication, filters)}
+            container={containerRef.current}
+            direction="left"
             key={publication.title}
             timeout={500}
             unmountOnExit
@@ -154,7 +156,7 @@ export default function Publication() {
                 expandAllAbstract={expandAllAbstract}
               />
             </div>
-          </Grow>
+          </Slide>
         );
       })}
     </Main>
