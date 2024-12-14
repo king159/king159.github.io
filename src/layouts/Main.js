@@ -12,16 +12,7 @@ const OverallLayout = styled("body")({
   position: "absolute",
   width: "100%",
   height: "100%",
-  "*": {
-    boxSizing: "border-box",
-    margin: 0,
-    padding: 0,
-  },
-  "*::before, *::after": {
-    boxSizing: "border-box",
-    "-moz-box-sizing": "border-box",
-    "-webkit-box-sizing": "border-box",
-  },
+  overflowY: "scroll",
   "&.is-loading": {
     "*": {
       animation: "none !important",

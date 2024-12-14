@@ -1,77 +1,64 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Tooltip from "@mui/material/Tooltip";
-
-import Contact from "../../data/contact";
+import Contact from "../../data/sidebar/contact";
 
 export default function ContactIcons() {
-  const [open, setOpen] = React.useState(false);
+  const [snackbar, setSnackbar] = useState({ open: false, message: "" });
 
-  const handleClickForEmail = () => {
-    navigator.clipboard.writeText(Contact[0].link);
-    setOpen(true);
-  };
-
-  function handleClick(link) {
-    window.open(link, "_blank");
-    setOpen(true);
-  }
-
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
+  const handleClick = (link, isEmail) => {
+    if (isEmail) {
+      navigator.clipboard.writeText(link);
+      setSnackbar({ open: true, message: "Email copied to clipboard!" });
+    } else {
+      window.open(link, "_blank");
     }
-
-    setOpen(false);
   };
 
-  const action = (
-    <React.Fragment>
-      <IconButton
-        size="small"
-        aria-label="close"
-        color="inherit"
-        onClick={handleClose}
-      >
-        <CloseIcon fontSize="small" />
-      </IconButton>
-    </React.Fragment>
-  );
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === "clickaway") return;
+    setSnackbar({ open: false, message: "" });
+  };
 
   return (
-    <ul className="icons">
-      {Contact.map((s) => (
-        <div key={s.link}>
-          <Tooltip
-            disableFocusListener
-            disableTouchListener
-            title={s.link}
-            placement="left-start"
+    <div>
+      {Contact.map(({ link, icon: Icon, description }) => {
+        const isEmail = link.includes("@");
+        return (
+          <div key={link}>
+            <Tooltip title={link} placement="left">
+              <Button
+                onClick={() => handleClick(link, isEmail)}
+                startIcon={<Icon />}
+                sx={{ color: "black", textTransform: "none" }}
+              >
+                {description}
+              </Button>
+            </Tooltip>
+          </div>
+        );
+      })}
+
+      {/* Single Snackbar for all feedback */}
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={4000}
+        onClose={handleCloseSnackbar}
+        message={snackbar.message}
+        action={
+          <IconButton
+            size="small"
+            aria-label="close"
+            color="inherit"
+            onClick={handleCloseSnackbar}
           >
-            <Button
-              onClick={() =>
-                s.link.includes("@") ? handleClickForEmail : handleClick(s.link)
-              }
-              startIcon={<s.icon />}
-              sx={{ color: "black", textTransform: "none" }}
-            >
-              {s.description}
-            </Button>
-          </Tooltip>
-          {s.link.includes("@") && (
-            <Snackbar
-              open={open}
-              autoHideDuration={4000}
-              onClose={handleClose}
-              message="Email copied to clipboard!"
-              action={action}
-            />
-          )}
-        </div>
-      ))}
-    </ul>
+            <CloseIcon fontSize="small" />
+          </IconButton>
+        }
+      />
+    </div>
   );
 }

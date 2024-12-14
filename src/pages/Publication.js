@@ -1,92 +1,91 @@
-import React from "react";
+import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { blue } from "@mui/material/colors";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import TurnedInNotIcon from "@mui/icons-material/TurnedInNot";
+import Grow from "@mui/material/Grow";
 
 import Main from "../layouts/Main";
 import PublicationCell from "../components/Publication/publication_cell";
-import data from "../data/publication_data";
+import data from "../data/publication/publication_data";
 import PublicationFilter from "../components/Publication/publication_filter";
 
-function checkFirstAuthor(author) {
-  return (
-    author.startsWith("Jinghao Wang") || author.startsWith("Jinghao Wang*")
+function checkPublication(publication, filters) {
+  const {
+    showFirstAuthor,
+    showPublished,
+    showCurrentYear,
+    showJournal,
+    showConference,
+    showAll,
+  } = filters;
+
+  const isFirstAuthor =
+    publication.author.startsWith("Jinghao Wang") ||
+    publication.author.startsWith("Jinghao Wang*");
+  const isPublished = !(
+    publication.conference === "arXiv" ||
+    publication.conference.includes("under review")
   );
-}
+  const isCurrentYear =
+    publication.time.split("-")[0] === new Date().getFullYear().toString();
+  const isJournal = publication.conference.includes("TPAMI");
+  const isConference = !publication.conference.includes("TPAMI");
 
-function checkPublished(conference) {
-  return !(conference == "arXiv" || conference.includes("under review"));
-}
-
-function checkCurrentYear(time) {
-  return time.split("-")[0] === new Date().getFullYear().toString();
-}
-
-function checkJournal(conference) {
-  return conference.includes("TPAMI");
-}
-
-function checkConference(conference) {
-  return !conference.includes("TPAMI");
-}
-
-function publicationFilterFunc(
-  publication,
-  showFirstAuthor,
-  showPublished,
-  showCurrentYear,
-  showJournal,
-  showConference,
-  showAll,
-) {
   return (
-    ((showFirstAuthor ? checkFirstAuthor(publication.author) : true) &&
-      (showPublished ? checkPublished(publication.conference) : true) &&
-      (showCurrentYear ? checkCurrentYear(publication.time) : true) &&
-      (showConference ? checkConference(publication.conference) : true) &&
-      (showJournal ? checkJournal(publication.conference) : true)) ||
-    showAll
+    showAll ||
+    ((showFirstAuthor ? isFirstAuthor : true) &&
+      (showPublished ? isPublished : true) &&
+      (showCurrentYear ? isCurrentYear : true) &&
+      (showJournal ? isJournal : true) &&
+      (showConference ? isConference : true))
   );
 }
 
 const countDic = {
-  "First Author": 0,
+  FirstAuthor: 0,
   Published: 0,
-  "Current Year": 0,
+  CurrentYear: 0,
   Journal: 0,
   Conference: 0,
   All: data.length,
 };
 
 for (const publication of data) {
-  if (checkFirstAuthor(publication.author)) {
-    countDic["First Author"] += 1;
+  if (publication.author.startsWith("Jinghao Wang")) {
+    countDic["FirstAuthor"] += 1;
   }
-  if (checkPublished(publication.conference)) {
+  if (
+    !(
+      publication.conference.includes("arXiv") ||
+      publication.conference.includes("under review")
+    )
+  ) {
     countDic["Published"] += 1;
   }
-  if (checkCurrentYear(publication.time)) {
-    countDic["Current Year"] += 1;
+  if (publication.time.split("-")[0] === new Date().getFullYear().toString()) {
+    countDic["CurrentYear"] += 1;
   }
-  if (checkJournal(publication.conference)) {
+  if (publication.conference.includes("TPAMI")) {
     countDic["Journal"] += 1;
   }
-  if (checkConference(publication.conference)) {
+  if (!publication.conference.includes("TPAMI")) {
     countDic["Conference"] += 1;
   }
 }
 
 export default function Publication() {
-  const [showFirstAuthor, setShowFirstAuthor] = React.useState(false);
-  const [showPublished, setShowPublished] = React.useState(false);
-  const [showCurrentYear, setShowCurrentYear] = React.useState(false);
-  const [showAll, setShowAll] = React.useState(true);
-  const [showJournal, setShowJournal] = React.useState(false);
-  const [showConference, setShowConference] = React.useState(false);
-  const [expandAllAbstract, setExpandAllAbstract] = React.useState(false);
+  const [filters, setFilters] = useState({
+    showFirstAuthor: false,
+    showPublished: false,
+    showCurrentYear: false,
+    showAll: true,
+    showJournal: false,
+    showConference: false,
+  });
+  const [expandAllAbstract, setExpandAllAbstract] = useState(false);
 
   const handleExpandClick = () => {
     setExpandAllAbstract(!expandAllAbstract);
@@ -97,29 +96,20 @@ export default function Publication() {
       <Typography sx={{ mt: 4, mb: 2 }} variant="h4" color="black">
         Publication
       </Typography>
-      {/* filter */}
+      {/* Filter Component */}
       <PublicationFilter
-        showAll={showAll}
-        setShowAll={setShowAll}
-        showFirstAuthor={showFirstAuthor}
-        setShowFirstAuthor={setShowFirstAuthor}
-        showPublished={showPublished}
-        setShowPublished={setShowPublished}
-        showCurrentYear={showCurrentYear}
-        setShowCurrentYear={setShowCurrentYear}
-        showJournal={showJournal}
-        setShowJournal={setShowJournal}
-        showConference={showConference}
-        setShowConference={setShowConference}
+        filters={filters}
+        setFilters={setFilters}
         countDic={countDic}
       />
-      {/* expand all abstract */}
+      {/* Expand All Abstract */}
       <FormControlLabel
         label={expandAllAbstract ? "Collapse Abstract" : "Expand Abstract"}
         control={
           <Checkbox
             onChange={handleExpandClick}
             sx={{
+              color: "#a0a0a0cc",
               "&.Mui-checked": {
                 color: blue[800],
               },
@@ -129,34 +119,44 @@ export default function Publication() {
           />
         }
       />
-      {data.map(
-        (publication) =>
-          publicationFilterFunc(
-            publication,
-            showFirstAuthor,
-            showPublished,
-            showCurrentYear,
-            showConference,
-            showJournal,
-            showAll,
-          ) && (
-            <PublicationCell
-              data={publication}
-              key={publication.title}
-              expandAllAbstract={expandAllAbstract}
-            />
-          ),
+
+      {data.filter((publication) => checkPublication(publication, filters))
+        .length === 0 && (
+        <div>
+          <Grow in={true} timeout={500} unmountOnExit>
+            <Typography
+              sx={{
+                mt: 4,
+                mb: 4,
+                display: "flex",
+                justifyContent: "center",
+              }}
+              variant="h6"
+              color="black"
+            >
+              No publication to show
+            </Typography>
+          </Grow>
+        </div>
       )}
-      {/* in case no publication to show */}
-      {data.filter((publication) =>
-        publicationFilterFunc(
-          publication,
-          showFirstAuthor,
-          showPublished,
-          showCurrentYear,
-          showAll,
-        ),
-      ).length === 0 && <Typography>No publication to show</Typography>}
+
+      {data.map((publication) => {
+        return (
+          <Grow
+            in={checkPublication(publication, filters)}
+            key={publication.title}
+            timeout={500}
+            unmountOnExit
+          >
+            <div>
+              <PublicationCell
+                data={publication}
+                expandAllAbstract={expandAllAbstract}
+              />
+            </div>
+          </Grow>
+        );
+      })}
     </Main>
   );
 }

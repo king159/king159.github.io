@@ -10,7 +10,7 @@ const HeaderDiv = styled("div")({
   display: "flex",
   justifyContent: "space-between",
   backgroundColor: "white",
-  borderBottom: "1px solid rgba(160, 160, 160, 0.3)",
+  borderBottom: "1px solid #a0a0a04d",
   left: 0,
   top: 0,
   zIndex: 100,
