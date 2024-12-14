@@ -10,7 +10,7 @@ const data = [
     icon: LocationOnIcon,
   },
   {
-    link: "jinghao003@e.ntu.edu.sg",
+    link: "@",
     description: "Email",
     icon: EmailIcon,
   },

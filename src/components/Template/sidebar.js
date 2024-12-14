@@ -7,7 +7,9 @@ import ContactIcons from "../Contact/contact_icons";
 
 const NameTypography = styled(Typography)({
   fontSize: "30px",
-  margin: "0.0em 0em 0em 0em",
+  margin: "0em 0em 0em 0em",
+  paddingBottom: "2em",
+  marginTop: "1em",
   lineHeight: "150%",
   letterSpacing: "0.04em",
   fontFamily: "Söhne, sans-serif",
@@ -15,13 +17,18 @@ const NameTypography = styled(Typography)({
   fontWeight: "bold",
 });
 
+const SideBarDiv = styled("div")({
+  minWidth: "18em",
+  width: "22em",
+});
+
 const SideBar = () => (
-  <section id="sidebar">
+  <SideBarDiv>
     <NameTypography>
       Wang Jinghao <br /> 王靖淏
     </NameTypography>
     <ContactIcons />
-  </section>
+  </SideBarDiv>
 );
 
 export default SideBar;

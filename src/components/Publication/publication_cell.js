@@ -18,7 +18,9 @@ import DialogActions from "@mui/material/DialogActions";
 
 const { PUBLIC_URL } = process.env;
 
-async function showGithubStars(githubLink) {
+const ColorArray = ["#003547", "#005E54", "#C2BB00", "#F24405", "#ED8B16"];
+
+async function retrieveGithubStars(githubLink) {
   const url = githubLink.split("/").slice(-2).join("/");
   try {
     let githubRepoData = await fetch(
@@ -54,35 +56,13 @@ const BibTeXTypography = styled(Typography)({
   whiteSpace: "pre-wrap",
 });
 
-const MeAsAuthor = styled("strong")({
+const MeAsAuthorStrong = styled("strong")({
   color: "#1a1a1a",
   fontSize: "21px",
+  fontWeight: "700",
 });
 
-const HighlightAuthor = (item, index, arr) => {
-  const trimmedItem = item.trim();
-  const isHighlighted =
-    trimmedItem === "Jinghao Wang" || trimmedItem === "Jinghao Wang*";
-  const convertedItem = trimmedItem.includes("#");
-  return (
-    <span key={index}>
-      {isHighlighted ? (
-        <MeAsAuthor>{trimmedItem}</MeAsAuthor>
-      ) : convertedItem ? (
-        <>
-          {trimmedItem.replace("#", "")}
-          <sup>&#x2709;</sup>
-        </>
-      ) : (
-        trimmedItem
-      )}
-      {arr.length === index + 1 ? "" : "," + "\u00A0".repeat(2)}
-    </span>
-  );
-};
-
-const ColorArray = ["#003547", "#005E54", "#C2BB00", "#F24405", "#ED8B16"];
-
+// image format
 const MyCardMedia = styled(CardMedia)(() => ({
   flexShrink: 0,
   width: "40%",
@@ -91,9 +71,37 @@ const MyCardMedia = styled(CardMedia)(() => ({
   height: "auto",
 }));
 
+const MySup = styled("sup")({
+  fontSize: "0.8em",
+  position: "relative",
+  top: "-0.2em",
+});
+
+function HighlightAuthor(item, index, arr) {
+  const trimmedItem = item.trim();
+  const isHighlighted =
+    trimmedItem === "Jinghao Wang" || trimmedItem === "Jinghao Wang*";
+  const convertedItem = trimmedItem.includes("#");
+  return (
+    <span key={index}>
+      {isHighlighted ? (
+        <MeAsAuthorStrong>{trimmedItem}</MeAsAuthorStrong>
+      ) : convertedItem ? (
+        <>
+          {trimmedItem.replace("#", "")}
+          <MySup>&#x2709;</MySup>
+        </>
+      ) : (
+        trimmedItem
+      )}
+      {arr.length === index + 1 ? "" : "," + "\u00A0".repeat(2)}
+    </span>
+  );
+}
+
 export default function PublicationCell({ data, expandAllAbstract }) {
   const [showAbstract, setShowAbstract] = useState(false);
-  const [githubStars, setGithubStars] = useState("0");
+  const [showGithubStars, setGithubStars] = useState("0");
   const [showBibTeX, setShowBibTeX] = useState(false);
   const handleExpandClick = () => {
     setShowAbstract(!showAbstract);
@@ -105,7 +113,9 @@ export default function PublicationCell({ data, expandAllAbstract }) {
 
   useEffect(() => {
     if (data.link.github) {
-      showGithubStars(data.link.github).then((value) => setGithubStars(value));
+      retrieveGithubStars(data.link.github).then((value) =>
+        setGithubStars(value),
+      );
     }
   }, [data.link.github]);
 
@@ -197,7 +207,7 @@ export default function PublicationCell({ data, expandAllAbstract }) {
               {/* render github star */}
               {data.link.github && (
                 <Badge
-                  badgeContent={`${githubStars}`}
+                  badgeContent={`${showGithubStars}`}
                   sx={{ color: "black", marginRight: "1em" }}
                 >
                   <StarRateIcon sx={{ color: ColorArray[2] }} />

@@ -16,7 +16,7 @@ const PublicationTypography = styled(Typography)({
 export default function Publication() {
   return (
     <Main title="Posts">
-      <Typography sx={{ mt: 4, mb: 2 }} variant="h6">
+      <Typography sx={{ mt: 4, mb: 2, color: "black" }} variant="h4">
         Posts
       </Typography>
       <PublicationTypography

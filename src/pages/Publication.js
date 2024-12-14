@@ -94,7 +94,7 @@ export default function Publication() {
 
   return (
     <Main title="Publication">
-      <Typography sx={{ mt: 4, mb: 2 }} variant="h6">
+      <Typography sx={{ mt: 4, mb: 2 }} variant="h4" color="black">
         Publication
       </Typography>
       {/* filter */}
