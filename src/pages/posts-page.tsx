@@ -1,5 +1,5 @@
 import React from "react";
-import Main from "../layouts/Main";
+import Main from "../layouts/main.tsx";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 

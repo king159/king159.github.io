@@ -1,4 +1,4 @@
-const routes = [
+const routes: { label: string; path: string }[] = [
   {
     label: "About",
     path: "/about",

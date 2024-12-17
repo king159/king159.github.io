@@ -1,14 +1,16 @@
-import newsData from "../../data/about/news";
-import aboutMeData from "../../data/about/bio";
 import React from "react";
+
+import Card from "@mui/material/Card";
 import List from "@mui/material/List";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
-import Card from "@mui/material/Card";
+
+import aboutMeData from "../../data/about/bio.tsx";
+import newsData from "../../data/about/news.tsx";
 
 const BioTypography = styled(Typography)({
   fontFamily: "Söhne, sans-serif",

@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import Typography from "@mui/material/Typography";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import { blue } from "@mui/material/colors";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import TurnedInNotIcon from "@mui/icons-material/TurnedInNot";
+import Checkbox from "@mui/material/Checkbox";
+import { blue } from "@mui/material/colors";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import Slide from "@mui/material/Slide";
+import Typography from "@mui/material/Typography";
+import React, { useState } from "react";
 
-import Main from "../layouts/Main";
-import PublicationCell from "../components/Publication/publication_cell";
-import data from "../data/publication/publication_data";
-import PublicationFilter from "../components/Publication/publication_filter";
+import PublicationCell from "../components/Publication/publication-cell.tsx";
+import PublicationFilter from "../components/Publication/publication-filter.tsx";
+import data from "../data/publication/publication-data.tsx";
+import Main from "../layouts/main.tsx";
 
 function checkPublication(publication, filters) {
   const {
@@ -23,8 +23,7 @@ function checkPublication(publication, filters) {
   } = filters;
 
   const isFirstAuthor =
-    publication.author.startsWith("Jinghao Wang") ||
-    publication.author.startsWith("Jinghao Wang*");
+    publication.author.startsWith("Jinghao Wang")
   const isPublished = !(
     publication.conference === "arXiv" ||
     publication.conference.includes("under review")

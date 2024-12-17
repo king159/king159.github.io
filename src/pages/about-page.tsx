@@ -1,8 +1,8 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import Main from "../layouts/Main";
+import Main from "../layouts/main.tsx";
 
-import AboutMeCell from "../components/About/about_me_cell";
+import AboutMeCell from "../components/About/about-me-cell.tsx";
 
 const About = () => (
   <Main title="About">

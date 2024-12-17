@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 
-import routes from "../../data/routes";
+import routes from "../../data/routes.tsx";
 
 const HeaderDiv = styled("div")({
   display: "flex",

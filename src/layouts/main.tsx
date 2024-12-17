@@ -1,9 +1,9 @@
 import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
-import Navigation from "../components/Template/navigation";
-import SideBar from "../components/Template/sidebar";
-import UpdateBubble from "../components/Template/update_bubble";
+import Navigation from "../components/Template/navigation.tsx";
+import SideBar from "../components/Template/sidebar.tsx";
+import UpdateBubble from "../components/Template/update-bubble.tsx";
 import { styled } from "@mui/material/styles";
 
 // Styled component with CSS reset

@@ -1,21 +1,23 @@
-import React, { useState, useEffect, useMemo } from "react";
-import Button from "@mui/material/Button";
-import SendIcon from "@mui/icons-material/Send";
+import React, { useEffect, useMemo, useState } from "react";
+
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import Box from "@mui/material/Box";
-import Badge from "@mui/material/Badge";
+import SendIcon from "@mui/icons-material/Send";
 import StarRateIcon from "@mui/icons-material/StarRate";
+import Badge from "@mui/material/Badge";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import Collapse from "@mui/material/Collapse";
-import { styled } from "@mui/material/styles";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CardMedia from "@mui/material/CardMedia";
-import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+import Collapse from "@mui/material/Collapse";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
-import ColorArray from "../../data/color";
+import { styled } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+
+import ColorArray from "../../data/color.tsx";
 
 const { PUBLIC_URL } = process.env;
 
@@ -23,7 +25,7 @@ async function retrieveGithubStars(githubLink) {
   const url = githubLink.split("/").slice(-2).join("/");
   try {
     let githubRepoData = await fetch(
-      `https://img.shields.io/github/stars/${url}`,
+      `https://img.shields.io/github/stars/${url}`
     );
     let githubRepoDataText = await githubRepoData.text();
     let githubStars = githubRepoDataText
@@ -73,11 +75,11 @@ const MySup = styled("sup")({
   top: "-0.2em",
 });
 
-const HighlightAuthor = (item, index, arr) => {
-  const trimmedItem = item.trim();
-  const isHighlighted =
+const HighlightAuthor = (item: string, index: number, arr: string[]) => {
+  const trimmedItem: string = item.trim();
+  const isHighlighted: boolean =
     trimmedItem === "Jinghao Wang" || trimmedItem === "Jinghao Wang*";
-  const convertedItem = trimmedItem.includes("#");
+  const convertedItem: boolean = trimmedItem.includes("#");
   return (
     <span key={index}>
       {isHighlighted ? (
@@ -115,7 +117,7 @@ export default function PublicationCell({ data, expandAllAbstract }) {
 
   const authorList = useMemo(
     () => data.author.split(",").map(HighlightAuthor),
-    [data.author],
+    [data.author]
   );
 
   return (

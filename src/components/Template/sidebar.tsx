@@ -3,7 +3,7 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 
-import ContactIcons from "../Contact/contact_icons";
+import ContactIcons from "../Contact/contact-icons.tsx";
 
 const NameTypography = styled(Typography)({
   fontSize: "30px",
@@ -22,13 +22,15 @@ const SideBarDiv = styled("div")({
   width: "22em",
 });
 
-const SideBar = () => (
-  <SideBarDiv>
-    <NameTypography>
-      Wang Jinghao <br /> 王靖淏
-    </NameTypography>
-    <ContactIcons />
-  </SideBarDiv>
-);
+export default function SideBar(){
+  return (
+    <SideBarDiv>
+      <NameTypography>
+        Wang Jinghao <br /> 王靖淏
+      </NameTypography>
+      <ContactIcons />
+    </SideBarDiv>
+  );
+}
 
-export default SideBar;
+

@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import Button from "@mui/material/Button";
-import Snackbar from "@mui/material/Snackbar";
-import IconButton from "@mui/material/IconButton";
+
 import CloseIcon from "@mui/icons-material/Close";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import Snackbar from "@mui/material/Snackbar";
 import Tooltip from "@mui/material/Tooltip";
-import Contact from "../../data/sidebar/contact";
+
+import Contact from "../../data/sidebar/contact.tsx";
 
 export default function ContactIcons() {
   const [snackbar, setSnackbar] = useState({ open: false, message: "" });
 
-  const handleClick = (link, isEmail) => {
+  const handleClick: (link: string, isEmail: boolean) => void = (
+    link,
+    isEmail
+  ) => {
     if (isEmail) {
       navigator.clipboard.writeText(link);
       setSnackbar({ open: true, message: "Email copied to clipboard!" });
@@ -18,8 +23,7 @@ export default function ContactIcons() {
     }
   };
 
-  const handleCloseSnackbar = (event, reason) => {
-    if (reason === "clickaway") return;
+  const handleCloseSnackbar = (event: React.SyntheticEvent, reason?: string) => {
     setSnackbar({ open: false, message: "" });
   };
 
@@ -49,12 +53,7 @@ export default function ContactIcons() {
         onClose={handleCloseSnackbar}
         message={snackbar.message}
         action={
-          <IconButton
-            size="small"
-            aria-label="close"
-            color="inherit"
-            onClick={handleCloseSnackbar}
-          >
+          <IconButton size="small" onClick={handleCloseSnackbar}>
             <CloseIcon fontSize="small" />
           </IconButton>
         }

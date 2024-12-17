@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography, Button, Card } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import HomeIcon from "@mui/icons-material/Home";
-import ColorArray from "../data/color";
+import ColorArray from "../data/color.tsx";
 
 const ErrorTypography = styled(Typography)(() => ({
   fontSize: "50px",

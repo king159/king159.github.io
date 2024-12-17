@@ -1,13 +1,14 @@
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Main from "./layouts/Main";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import Main from "./layouts/main.tsx";
 
 const { PUBLIC_URL } = process.env;
 
-const About = lazy(() => import("./pages/About"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-const Publication = lazy(() => import("./pages/Publication"));
-const Posts = lazy(() => import("./pages/Posts"));
+const About = lazy(() => import("./pages/about-page.tsx"));
+const NotFound = lazy(() => import("./pages/not-found-page.tsx"));
+const Publication = lazy(() => import("./pages/publication-page.tsx"));
+const Posts = lazy(() => import("./pages/posts-page.tsx"));
 
 const App = () => (
   <BrowserRouter basename={PUBLIC_URL}>
