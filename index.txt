@@ -1,0 +1,14 @@
+1:"$Sreact.fragment"
+2:I[7506,["736","static/chunks/736-86eaf7609c650e20.js","533","static/chunks/533-312353d09c5cff52.js","282","static/chunks/282-684c8d1a02b9b49d.js","855","static/chunks/855-b09d83a2a46ec92f.js","173","static/chunks/173-eaa2e67d03824d1e.js","504","static/chunks/504-6f531f29902a81d3.js","177","static/chunks/app/layout-4be65b1fcef13eb5.js"],"default"]
+3:I[5244,[],""]
+4:I[3866,[],""]
+5:I[3959,["736","static/chunks/736-86eaf7609c650e20.js","533","static/chunks/533-312353d09c5cff52.js","282","static/chunks/282-684c8d1a02b9b49d.js","345","static/chunks/app/not-found-6def5633e617db55.js"],"default"]
+6:I[8173,["173","static/chunks/173-eaa2e67d03824d1e.js","974","static/chunks/app/page-d7ce7c047aeb0014.js"],""]
+7:I[6213,[],"OutletBoundary"]
+9:I[6213,[],"MetadataBoundary"]
+b:I[6213,[],"ViewportBoundary"]
+d:I[4835,[],""]
+0:{"P":null,"b":"yDGgngc_t1RZFJxedzAuy","p":"","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[null,["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"icon","href":"/images/favicon.ico"}],["$","meta",null,{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","body",null,{"suppressHydrationWarning":true,"children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],["$","$L5",null,{}]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","$L6",null,{"href":"/about","children":"About"}],null,["$","$L7",null,{"children":"$L8"}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","nAS0FC48NE4Bfa4Ovjh_M",{"children":[["$","$L9",null,{"children":"$La"}],["$","$Lb",null,{"children":"$Lc"}],null]}]]}],false]],"m":"$undefined","G":["$d","$undefined"],"s":false,"S":true}
+c:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Wang Jinghao | 王靖淏"}],["$","meta","2",{"name":"description","content":"Personal website of Wang Jinghao"}],["$","link","3",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}]]
+8:null
