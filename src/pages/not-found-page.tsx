@@ -1,7 +1,7 @@
 import HomeIcon from "@mui/icons-material/Home";
 import { Box, Button, Card, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import ColorArray from "../../../src/data/color.tsx";
+import ColorArray from "../data/color.tsx";
 
 const ErrorTypography = styled(Typography)(() => ({
   fontSize: "50px",

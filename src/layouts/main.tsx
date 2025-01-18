@@ -35,7 +35,15 @@ const EachPageLayout = styled("div")({
 });
 
 // Main component
-const Main = ({ title, children, fullPage }) => (
+import { ReactNode } from "react";
+
+interface MainProps {
+  title?: string;
+  children: ReactNode;
+  fullPage?: boolean;
+}
+
+const Main = ({ title, children, fullPage }: MainProps) => (
   <OverallLayout>
     <HelmetProvider>
       <Helmet

@@ -1,4 +1,3 @@
-import * as React from "react";
 import Grid from "@mui/material/Grid2";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";

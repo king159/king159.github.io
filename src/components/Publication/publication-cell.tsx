@@ -19,8 +19,6 @@ import Typography from "@mui/material/Typography";
 
 import ColorArray from "../../data/color.tsx";
 
-const PUBLIC_URL = import.meta.env.VITE_PUBLIC_URL;
-
 async function retrieveGithubStars(githubLink: string) {
   const url = githubLink.split("/").slice(-2).join("/");
   try {
@@ -232,7 +230,6 @@ export default function PublicationCell({ data, expandAllAbstract }: Publication
               </Dialog>
 
               <Button
-                expand={showAbstract}
                 onClick={handleExpandClick}
                 sx={{ color: ColorArray[4], textTransform: "none" }}
                 endIcon={<ExpandMoreIcon />}
@@ -250,7 +247,7 @@ export default function PublicationCell({ data, expandAllAbstract }: Publication
           </Box>
         </CardContent>
       </Box>
-      <MyCardMedia image={`${PUBLIC_URL}/painting/${data.image_path}`} />
+      <MyCardMedia image={`painting/${data.image_path}`} />
     </Card>
   );
 }

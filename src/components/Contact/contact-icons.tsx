@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import CloseIcon from "@mui/icons-material/Close";
 import Button from "@mui/material/Button";
@@ -23,7 +23,7 @@ export default function ContactIcons() {
     }
   };
 
-  const handleCloseSnackbar = (event: React.SyntheticEvent, reason?: string) => {
+  const handleCloseSnackbar = () => {
     setSnackbar({ open: false, message: "" });
   };
 

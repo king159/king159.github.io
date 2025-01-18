@@ -6,13 +6,30 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Slide from "@mui/material/Slide";
 import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
+import Card from "@mui/material/Card";
 
 import PublicationCell from "../components/Publication/publication-cell.tsx";
 import PublicationFilter from "../components/Publication/publication-filter.tsx";
 import data from "../data/publication/publication-data.tsx";
 import Main from "../layouts/main.tsx";
 
-function checkPublication(publication, filters) {
+interface Publication {
+  author: string;
+  conference: string;
+  time: string;
+  title: string;
+}
+
+interface Filters {
+  showFirstAuthor: boolean;
+  showPublished: boolean;
+  showCurrentYear: boolean;
+  showJournal: boolean;
+  showConference: boolean;
+  showAll: boolean;
+}
+
+function checkPublication(publication: Publication, filters: Filters) {
   const {
     showFirstAuthor,
     showPublished,
@@ -123,6 +140,7 @@ export default function Publication() {
         .length === 0 && (
         <div>
           <Slide in={true} timeout={500} unmountOnExit direction="left">
+            <Card>
             <Typography
               sx={{
                 mt: 4,
@@ -135,6 +153,7 @@ export default function Publication() {
             >
               No publication to show
             </Typography>
+            </Card>
           </Slide>
         </div>
       )}
