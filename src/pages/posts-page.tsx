@@ -1,7 +1,6 @@
-import React from "react";
-import Main from "../layouts/main.tsx";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
+import Main from "../layouts/main.tsx";
 
 const PublicationTypography = styled(Typography)({
   fontSize: "28px",

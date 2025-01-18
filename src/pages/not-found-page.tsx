@@ -1,8 +1,7 @@
-import React from "react";
-import { Box, Typography, Button, Card } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import HomeIcon from "@mui/icons-material/Home";
-import ColorArray from "../data/color.tsx";
+import { Box, Button, Card, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import ColorArray from "../../../src/data/color.tsx";
 
 const ErrorTypography = styled(Typography)(() => ({
   fontSize: "50px",

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
@@ -19,16 +19,16 @@ import Typography from "@mui/material/Typography";
 
 import ColorArray from "../../data/color.tsx";
 
-const { PUBLIC_URL } = process.env;
+const PUBLIC_URL = import.meta.env.VITE_PUBLIC_URL;
 
-async function retrieveGithubStars(githubLink) {
+async function retrieveGithubStars(githubLink: string) {
   const url = githubLink.split("/").slice(-2).join("/");
   try {
-    let githubRepoData = await fetch(
+    const githubRepoData = await fetch(
       `https://img.shields.io/github/stars/${url}`
     );
-    let githubRepoDataText = await githubRepoData.text();
-    let githubStars = githubRepoDataText
+    const githubRepoDataText = await githubRepoData.text();
+    const githubStars = githubRepoDataText
       .split("</text></a></g></svg>")[0]
       .split(">")[31];
     return githubStars;
@@ -97,7 +97,27 @@ const HighlightAuthor = (item: string, index: number, arr: string[]) => {
   );
 };
 
-export default function PublicationCell({ data, expandAllAbstract }) {
+interface PublicationData {
+  link: {
+    github?: string;
+    paper?: string;
+  };
+  author: string;
+  title: string;
+  conference: string;
+  tldr: string;
+  time: string;
+  bibtex?: string;
+  abstract?: string;
+  image_path: string;
+}
+
+interface PublicationCellProps {
+  data: PublicationData;
+  expandAllAbstract: boolean;
+}
+
+export default function PublicationCell({ data, expandAllAbstract }: PublicationCellProps) {
   const [showAbstract, setShowAbstract] = useState(false);
   const [showGithubStars, setGithubStars] = useState("0");
   const [showBibTeX, setShowBibTeX] = useState(false);

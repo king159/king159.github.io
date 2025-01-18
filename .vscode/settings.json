@@ -19,16 +19,4 @@
         "titleBar.inactiveForeground": "#15202b99"
     },
     "peacock.color": "#42b866",
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[scss]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": "explicit"
-    }
 }

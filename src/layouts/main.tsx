@@ -1,10 +1,9 @@
-import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
+import { styled } from "@mui/material/styles";
 import Navigation from "../components/Template/navigation.tsx";
 import SideBar from "../components/Template/sidebar.tsx";
 import UpdateBubble from "../components/Template/update-bubble.tsx";
-import { styled } from "@mui/material/styles";
 
 // Styled component with CSS reset
 const OverallLayout = styled("body")({
