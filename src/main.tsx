@@ -1,37 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import About from "./pages/about-page";
-import Publication from "./pages/publication-page";
-import Post from "./pages/posts-page";
+import routes from 'routes'
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <About />,
-  },
-  {
-    path: "/about",
-    element: <About />,
-  },
-  {
-    path:"/publication",
-    element: <Publication />,
-  },
-  {
-    path: "/posts",
-    element: <Post />,
-  },
-]);
+const router = createBrowserRouter(routes)
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root')
 if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
-  );
+    ReactDOM.createRoot(rootElement).render(
+        <React.StrictMode>
+            <RouterProvider router={router} />
+        </React.StrictMode>
+    )
 } else {
-  console.error("Failed to find the root element");
+    console.error('Failed to find the root element')
 }
