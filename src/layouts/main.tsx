@@ -1,13 +1,12 @@
 import { ReactNode } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
-
 import { styled } from '@mui/material/styles'
 import Navigation from '../components/Template/navigation.tsx'
 import SideBar from '../components/Template/sidebar.tsx'
-import UpdateBubble from '../components/Template/update-bubble.tsx'
+import UpdateBubble from '../components/Template/update-bubble'
+import GoToTopButton from '../components/Template/go-to-top'
 
-// Styled component with CSS reset
-const OverallLayout = styled('body')({
+const OverallLayout = styled('div')({
     backgroundColor: '#f5f5f5',
     position: 'absolute',
     width: '100%',
@@ -25,7 +24,6 @@ const OverallLayout = styled('body')({
     },
 })
 
-// Styled layout for each page
 const EachPageLayout = styled('div')({
     display: 'flex',
     flexDirection: 'row-reverse',
@@ -42,7 +40,7 @@ interface MainProps {
 }
 
 const Main = ({ title, children, fullPage }: MainProps) => (
-    <OverallLayout>
+    <OverallLayout id="scroll-container">
         <HelmetProvider>
             <Helmet
                 titleTemplate="%s | Wang Jinghao（王靖淏）"
@@ -57,6 +55,7 @@ const Main = ({ title, children, fullPage }: MainProps) => (
                 {!fullPage && <SideBar />}
             </EachPageLayout>
             <UpdateBubble />
+            <GoToTopButton />
         </HelmetProvider>
     </OverallLayout>
 )

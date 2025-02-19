@@ -156,7 +156,7 @@ export default function PublicationCell({
                         </PublicationTypography>
                         <PublicationTypography
                             variant="body2"
-                            sx={{ color: '#a0a0a0cc', fontSize: '18px' }}
+                            sx={{ color: '#707070cc', fontSize: '18px' }}
                         >
                             TL;DR: {data.tldr}
                         </PublicationTypography>

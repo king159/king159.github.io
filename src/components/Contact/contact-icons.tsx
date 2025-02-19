@@ -1,10 +1,6 @@
 import { useState } from 'react'
-
+import { Button, IconButton, Snackbar, Tooltip } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
-import Button from '@mui/material/Button'
-import IconButton from '@mui/material/IconButton'
-import Snackbar from '@mui/material/Snackbar'
-import Tooltip from '@mui/material/Tooltip'
 
 import Contact from '../../data/sidebar/contact.tsx'
 

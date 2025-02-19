@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography'
-import Main from '../layouts/main.tsx'
 
+import Main from '../layouts/main.tsx'
 import AboutMeCell from '../components/About/about-me-cell.tsx'
 
 const About = () => (

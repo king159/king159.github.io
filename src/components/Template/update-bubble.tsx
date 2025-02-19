@@ -1,7 +1,5 @@
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh'
-import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import Typography from '@mui/material/Typography'
+import { Box, Button, Typography } from '@mui/material'
 
 export default function UpdateBubble() {
     return (

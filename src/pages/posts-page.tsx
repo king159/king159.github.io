@@ -1,5 +1,6 @@
 import Typography from '@mui/material/Typography'
 import { styled } from '@mui/material/styles'
+
 import Main from '../layouts/main.tsx'
 
 const PublicationTypography = styled(Typography)({

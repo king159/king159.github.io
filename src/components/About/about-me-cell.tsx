@@ -1,20 +1,22 @@
-import Card from '@mui/material/Card'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemButton from '@mui/material/ListItemButton'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import ListItemText from '@mui/material/ListItemText'
-import Typography from '@mui/material/Typography'
+import {
+    Card,
+    List,
+    ListItem,
+    ListItemButton,
+    ListItemIcon,
+    ListItemText,
+    Typography,
+} from '@mui/material'
 import { styled } from '@mui/material/styles'
 
-import aboutMeData from '../../data/about/bio.tsx'
-import newsData from '../../data/about/news.tsx'
+import aboutMeData from 'data/about/bio'
+import newsData from 'data/about/news'
 
 const BioTypography = styled(Typography)({
     fontFamily: 'Söhne, sans-serif',
     lineHeight: '200%',
     backgroundColor: 'white',
-    padding: '1em 1em 1em 1em',
+    padding: '1em',
     borderRadius: '10px',
     boxShadow: '0 0 2px #0000001a',
     '& a': {
@@ -50,7 +52,10 @@ export default function AboutMeCell() {
             <Card>
                 <List>
                     {newsData.map((item) => (
-                        <ListItem sx={{ backgroundColor: 'white' }}>
+                        <ListItem
+                            sx={{ backgroundColor: 'white' }}
+                            key={item.link}
+                        >
                             <ListItemButton
                                 onClick={() => window.open(item.link)}
                             >
@@ -59,9 +64,7 @@ export default function AboutMeCell() {
                                 </ListItemIcon>
                                 <ListItemText
                                     primary={item.firstLine}
-                                    secondary={
-                                        item.secondLine ? item.secondLine : null
-                                    }
+                                    secondary={item.secondLine || null}
                                     sx={{ color: 'black' }}
                                 />
                             </ListItemButton>
