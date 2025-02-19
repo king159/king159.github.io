@@ -6,11 +6,11 @@ import LocationOnIcon from '@mui/icons-material/LocationOn'
 const data = [
     {
         link: 'https://www.cuhk.edu.hk/',
-        description: 'Hong Kong',
+        description: 'Hong Kong, China',
         icon: LocationOnIcon,
     },
     {
-        link: '@',
+        link: 'jinghao.w@link.cuhk.edu.hk',
         description: 'Email',
         icon: EmailIcon,
     },
@@ -20,7 +20,7 @@ const data = [
         icon: GitHubIcon,
     },
     {
-        link: 'https://scholar.google.com/citations?hl=en&user=G8ztcD8AAAAJ',
+        link: 'https://scholar.google.com/citations?user=G8ztcD8AAAAJ',
         description: 'Google Scholar',
         icon: SchoolIcon,
     },

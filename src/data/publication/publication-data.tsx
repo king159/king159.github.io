@@ -2,7 +2,7 @@ const data = [
     {
         title: 'FreeMorph: Tuning-Free Generalized Image Morphing with Diffusion Model',
         author: 'Yukang Cao, Chenyang Si, Jinghao Wang, Ziwei Liu#',
-        conference: 'under review',
+        venue: 'under review',
         time: '2024-10',
         link: {},
         abstract:
@@ -13,7 +13,7 @@ const data = [
     {
         title: 'AID: Attention Interpolation of Text-to-Image Diffusion',
         author: 'Qiyuan He, Jinghao Wang, Ziwei Liu, Angela Yao#',
-        conference: 'Neural Information Processing Systems (NeurIPS), 2024',
+        venue: 'Neural Information Processing Systems (NeurIPS), 2024',
         time: '2024-09',
         link: {
             paper: 'https://arxiv.org/abs/2403.17924',
@@ -33,8 +33,7 @@ const data = [
     {
         title: 'Pair then Relation: Pair-Net for Panoptic Scene Graph Generation',
         author: 'Jinghao Wang*, Zhengyu Wen*, Xiangtai Li, Zujing Guo, Jingkang Yang, Ziwei Liu#',
-        conference:
-            'IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2024',
+        venue: 'IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2024',
         time: '2024-08',
         link: {
             paper: 'https://arxiv.org/abs/2307.08699',
@@ -55,8 +54,7 @@ const data = [
     {
         title: 'Mimic-it: Multi-modal in-context instruction tuning',
         author: 'Bo Li*, Yuanhan Zhang*, Liangyu Chen*, Jinghao Wang*, Fanyi Pu*, Joshua Adrian Cahyono, Jingkang Yang, Chunyuan Li, Ziwei Liu#',
-        conference:
-            'IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2024, under review',
+        venue: 'IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2024, under review',
         time: '2023-06',
         link: {
             paper: 'https://arxiv.org/abs/2306.05425',
@@ -76,8 +74,7 @@ const data = [
     {
         title: 'TransPatch: A Transformer-based Generator for Accelerating Transferable Patch Generation in Adversarial Attacks Against Object Detection Models',
         author: 'Jinghao Wang, Chenling Cui, Xuejun Wen#, Jie Shi',
-        conference:
-            'European Conference on Computer Vision Workshop on Adversarial Robustness in the Real World (ECCV-W), 2022',
+        venue: 'European Conference on Computer Vision Workshop on Adversarial Robustness in the Real World (ECCV-W), 2022',
         time: '2023-02',
         link: {
             paper: 'https://link.springer.com/chapter/10.1007/978-3-031-25056-9_21',

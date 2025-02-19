@@ -1,99 +1,96 @@
-import AutoStoriesIcon from '@mui/icons-material/AutoStories'
-import TurnedInNotIcon from '@mui/icons-material/TurnedInNot'
-import Checkbox from '@mui/material/Checkbox'
-import { blue } from '@mui/material/colors'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Slide from '@mui/material/Slide'
-import Typography from '@mui/material/Typography'
 import React, { useState } from 'react'
-import Card from '@mui/material/Card'
+import {
+    KeyboardArrowDown as KeyboardArrowDownIcon,
+    KeyboardArrowUp as KeyboardArrowUpIcon,
+} from '@mui/icons-material'
+import {
+    Checkbox,
+    FormControlLabel,
+    Slide,
+    Typography,
+    Card,
+    Box,
+} from '@mui/material'
 
 import PublicationCell from '../components/Publication/publication-cell.tsx'
 import PublicationFilter from '../components/Publication/publication-filter.tsx'
 import data from '../data/publication/publication-data.tsx'
 import Main from '../layouts/main.tsx'
+import { Publication, PublicationPredicates, Filters } from 'types.tsx'
 
-interface Publication {
-    author: string
-    conference: string
-    time: string
-    title: string
+function getPublicationPredicates(
+    publication: Publication
+): PublicationPredicates {
+    const isFirstAuthor = publication.author.startsWith('Jinghao Wang')
+    const isPublished = !(
+        publication.venue === 'arXiv' ||
+        publication.venue.includes('under review')
+    )
+    const isCurrentYear =
+        publication.time.split('-')[0] === new Date().getFullYear().toString()
+    const isJournal =
+        publication.venue.includes('TPAMI') &&
+        !publication.venue.includes('under review')
+    const isConference =
+        !publication.venue.includes('TPAMI') &&
+        !publication.venue.includes('under review')
+    return {
+        isFirstAuthor,
+        isPublished,
+        isCurrentYear,
+        isJournal,
+        isConference,
+    }
 }
 
-interface Filters {
-    showFirstAuthor: boolean
-    showPublished: boolean
-    showCurrentYear: boolean
-    showJournal: boolean
-    showConference: boolean
-    showAll: boolean
-}
-
-function checkPublication(publication: Publication, filters: Filters) {
+// Use the helper in checkPublication:
+function checkPublication(publication: Publication, filters: Filters): boolean {
     const {
+        showAll,
         showFirstAuthor,
         showPublished,
         showCurrentYear,
         showJournal,
         showConference,
-        showAll,
     } = filters
-
-    const isFirstAuthor = publication.author.startsWith('Jinghao Wang')
-    const isPublished = !(
-        publication.conference === 'arXiv' ||
-        publication.conference.includes('under review')
-    )
-    const isCurrentYear =
-        publication.time.split('-')[0] === new Date().getFullYear().toString()
-    const isJournal = publication.conference.includes('TPAMI')
-    const isConference = !publication.conference.includes('TPAMI')
-
+    const predicates = getPublicationPredicates(publication)
     return (
         showAll ||
-        ((showFirstAuthor ? isFirstAuthor : true) &&
-            (showPublished ? isPublished : true) &&
-            (showCurrentYear ? isCurrentYear : true) &&
-            (showJournal ? isJournal : true) &&
-            (showConference ? isConference : true))
+        ((!showFirstAuthor || predicates.isFirstAuthor) &&
+            (!showPublished || predicates.isPublished) &&
+            (!showCurrentYear || predicates.isCurrentYear) &&
+            (!showJournal || predicates.isJournal) &&
+            (!showConference || predicates.isConference))
     )
 }
 
-const countDic = {
-    FirstAuthor: 0,
-    Published: 0,
-    CurrentYear: 0,
-    Journal: 0,
-    Conference: 0,
-    All: data.length,
-}
+const countDic = data.reduce(
+    (acc, publication) => {
+        const {
+            isFirstAuthor,
+            isPublished,
+            isCurrentYear,
+            isJournal,
+            isConference,
+        } = getPublicationPredicates(publication)
+        if (isFirstAuthor) acc.FirstAuthor += 1
+        if (isPublished) acc.Published += 1
+        if (isCurrentYear) acc.CurrentYear += 1
+        if (isJournal) acc.Journal += 1
+        if (isConference) acc.Conference += 1
+        return acc
+    },
+    {
+        FirstAuthor: 0,
+        Published: 0,
+        CurrentYear: 0,
+        Journal: 0,
+        Conference: 0,
+        All: data.length,
+    }
+)
 
-for (const publication of data) {
-    if (publication.author.startsWith('Jinghao Wang')) {
-        countDic['FirstAuthor'] += 1
-    }
-    if (
-        !(
-            publication.conference.includes('arXiv') ||
-            publication.conference.includes('under review')
-        )
-    ) {
-        countDic['Published'] += 1
-    }
-    if (
-        publication.time.split('-')[0] === new Date().getFullYear().toString()
-    ) {
-        countDic['CurrentYear'] += 1
-    }
-    if (publication.conference.includes('TPAMI')) {
-        countDic['Journal'] += 1
-    }
-    if (!publication.conference.includes('TPAMI')) {
-        countDic['Conference'] += 1
-    }
-}
-
-export default function Publication() {
+export default function PublicationPage() {
     const [filters, setFilters] = useState({
         showFirstAuthor: false,
         showPublished: false,
@@ -120,24 +117,23 @@ export default function Publication() {
                 countDic={countDic}
             />
             {/* Expand All Abstract */}
-            <FormControlLabel
-                label={
-                    expandAllAbstract ? 'Collapse Abstract' : 'Expand Abstract'
-                }
-                control={
-                    <Checkbox
-                        onChange={handleExpandClick}
-                        sx={{
-                            color: '#a0a0a0cc',
-                            '&.Mui-checked': {
-                                color: blue[800],
-                            },
-                        }}
-                        icon={<TurnedInNotIcon />}
-                        checkedIcon={<AutoStoriesIcon />}
-                    />
-                }
-            />
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                <FormControlLabel
+                    label={
+                        expandAllAbstract
+                            ? 'Collapse All Abstract'
+                            : 'Expand All Abstract'
+                    }
+                    control={
+                        <Checkbox
+                            onChange={handleExpandClick}
+                            checked={expandAllAbstract}
+                            icon={<KeyboardArrowDownIcon />}
+                            checkedIcon={<KeyboardArrowUpIcon />}
+                        />
+                    }
+                />
+            </Box>
 
             {data.filter((publication) =>
                 checkPublication(publication, filters)

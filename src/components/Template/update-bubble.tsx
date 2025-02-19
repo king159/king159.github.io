@@ -9,7 +9,7 @@ export default function UpdateBubble() {
             <Button variant="text" sx={{ textTransform: 'none' }} disabled>
                 <PriorityHighIcon sx={{ color: '#ffb39a', marginLeft: -1 }} />
                 <Typography sx={{ fontSize: '12pt', color: 'black' }}>
-                    Latest update: 2025-01
+                    Latest update: 2025-02
                 </Typography>
             </Button>
         </Box>
