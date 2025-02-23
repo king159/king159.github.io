@@ -107,7 +107,7 @@ export default function PublicationPage() {
 
     return (
         <Main title="Publication">
-            <Typography sx={{ mt: 4, mb: 2 }} variant="h4" color="black">
+            <Typography sx={{ mt: 4, mb: 2 }} variant="h1">
                 Publication
             </Typography>
             {/* Filter Component */}
@@ -153,8 +153,7 @@ export default function PublicationPage() {
                                     display: 'flex',
                                     justifyContent: 'center',
                                 }}
-                                variant="h6"
-                                color="black"
+                                variant="h4"
                             >
                                 No publication to show
                             </Typography>

@@ -147,6 +147,7 @@ export default function PublicationFilter({
                                         paddingLeft: '0.5em',
                                         mt: 1,
                                     }}
+                                    variant='h6'
                                 >
                                     ({countDic?.[key] ?? 0})
                                 </Typography>

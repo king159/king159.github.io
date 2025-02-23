@@ -29,7 +29,7 @@ const EachPageLayout = styled('div')({
     flexDirection: 'row-reverse',
     margin: '0 auto',
     padding: '4.5em',
-    width: '90em',
+    width: '120em',
     maxWidth: '100%',
 })
 

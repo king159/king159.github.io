@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import Grid from '@mui/material/Grid2'
-import Button from '@mui/material/Button'
+import { Button, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
 import routes from '../../data/routes.tsx'
@@ -27,7 +27,7 @@ export default function Navigation() {
                 {routes.map((label) => (
                     <Link to={label.path}>
                         <Button sx={{ color: 'black', marginRight: '2em' }}>
-                            {label.label}
+                            <Typography variant="h6">{label.label}</Typography>
                         </Button>
                     </Link>
                 ))}

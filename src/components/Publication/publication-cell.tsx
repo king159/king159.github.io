@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+
 import {
     ExpandMore as ExpandMoreIcon,
     FormatListBulleted as FormatListBulletedIcon,
@@ -28,23 +29,13 @@ async function retrieveGithubStars(githubLink: string) {
     try {
         const res = await fetch(`https://img.shields.io/github/stars/${url}`)
         const text = await res.text()
-        // Extract star count using a regular expression for clarity:
-        const match = text.match(/>(\d+)<\/text>/)
+        // Updated regex to capture decimals with an optional "k" suffix:
+        const match = text.match(/>([\d.]+k?)<\/text>/)
         return match ? match[1] : '0'
     } catch {
         return '0'
     }
 }
-
-const PublicationTypography = styled(Typography)({
-    fontSize: '28px',
-    margin: '0.5em 0 0.25em',
-    lineHeight: '160%',
-    fontWeight: 400,
-    letterSpacing: '-0.02em',
-    fontFamily: 'Söhne, sans-serif',
-    color: '#080808',
-})
 
 const BibTeXTypography = styled(Typography)({
     fontFamily: 'Arial, sans-serif',
@@ -56,15 +47,13 @@ const BibTeXTypography = styled(Typography)({
 
 const MeAsAuthorStrong = styled('strong')({
     color: '#1a1a1a',
-    fontSize: '21px',
     fontWeight: 700,
 })
 
 const MyCardMedia = styled(CardMedia)({
     flexShrink: 0,
-    width: '40%',
-    margin: '0 auto',
-    height: 'auto',
+    width: '20%',
+    marginLeft: 'auto',
 })
 
 const MySup = styled('sup')({
@@ -126,19 +115,32 @@ export default function PublicationCell({
     )
 
     return (
-        <Card sx={{ display: 'flex', mb: '1.5em' }}>
-            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Card
+            sx={{
+                display: 'flex',
+                mb: '1.5em',
+            }}
+        >
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '1.6em',
+                    flex: 1,
+                }}
+            >
                 <CardContent>
-                    <PublicationTypography
+                    <Typography
                         sx={{
+                            width: '100%',
                             textAlign: 'center',
-                            fontSize: '26px',
-                            px: '1em',
                             mb: '1em',
+                            fontWeight: 700,
                         }}
+                        variant="h5"
                     >
                         {data.title}
-                    </PublicationTypography>
+                    </Typography>
                     <Box
                         sx={{
                             ml: '2em',
@@ -146,23 +148,14 @@ export default function PublicationCell({
                             flexDirection: 'column',
                         }}
                     >
-                        <PublicationTypography sx={{ fontSize: '18px' }}>
-                            {authorList}
-                        </PublicationTypography>
-                        <PublicationTypography
-                            sx={{ fontSize: '18px', fontStyle: 'italic' }}
-                        >
+                        <Typography variant="h6">{authorList}</Typography>
+                        <Typography sx={{ fontStyle: 'italic' }} variant="h6">
                             {data.venue}
-                        </PublicationTypography>
-                        <PublicationTypography
-                            variant="body2"
-                            sx={{ color: '#707070cc', fontSize: '18px' }}
-                        >
+                        </Typography>
+                        <Typography variant="h6" sx={{ color: '#707070cc' }}>
                             TL;DR: {data.tldr}
-                        </PublicationTypography>
-                        <PublicationTypography sx={{ fontSize: '16px' }}>
-                            {data.time}
-                        </PublicationTypography>
+                        </Typography>
+                        <Typography variant="h6">{data.time}</Typography>
                         <Box sx={{ '& button': { mr: '1em', p: 0 } }}>
                             {data.bibtex && (
                                 <Button
@@ -174,7 +167,15 @@ export default function PublicationCell({
                                         textTransform: 'none',
                                     }}
                                 >
-                                    Paper
+                                    <Typography
+                                        sx={{
+                                            color: ColorArray[0],
+                                            textTransform: 'none',
+                                        }}
+                                        variant="h6"
+                                    >
+                                        Paper
+                                    </Typography>
                                 </Button>
                             )}
                             {data.link.github && (
@@ -190,11 +191,20 @@ export default function PublicationCell({
                                             textTransform: 'none',
                                         }}
                                     >
-                                        Code
+                                        <Typography
+                                            sx={{
+                                                color: ColorArray[1],
+                                                textTransform: 'none',
+                                            }}
+                                            variant="h6"
+                                        >
+                                            Code
+                                        </Typography>
                                     </Button>
                                     <Badge
                                         badgeContent={githubStars}
                                         sx={{ mr: '1em' }}
+                                        max={99999}
                                     >
                                         <StarRateIcon
                                             sx={{ color: ColorArray[2] }}
@@ -204,7 +214,7 @@ export default function PublicationCell({
                             )}
                             {data.bibtex && (
                                 <Button
-                                    size="small"
+                                    size="medium"
                                     endIcon={<FormatListBulletedIcon />}
                                     onClick={toggleBibTeX}
                                     sx={{
@@ -212,7 +222,15 @@ export default function PublicationCell({
                                         textTransform: 'none',
                                     }}
                                 >
-                                    BibTeX
+                                    <Typography
+                                        sx={{
+                                            color: ColorArray[3],
+                                            textTransform: 'none',
+                                        }}
+                                        variant="h6"
+                                    >
+                                        BibTeX
+                                    </Typography>
                                 </Button>
                             )}
                             <Dialog open={showBibTeX} onClose={toggleBibTeX}>
@@ -237,18 +255,25 @@ export default function PublicationCell({
                                 }}
                                 endIcon={<ExpandMoreIcon />}
                             >
-                                Abstract
+                                {' '}
+                                <Typography
+                                    sx={{
+                                        color: ColorArray[4],
+                                        textTransform: 'none',
+                                    }}
+                                    variant="h6"
+                                >
+                                    Abstract
+                                </Typography>
                             </Button>
                             <Collapse
                                 in={showAbstract}
                                 timeout="auto"
                                 unmountOnExit
                             >
-                                <PublicationTypography
-                                    sx={{ fontSize: '16px' }}
-                                >
+                                <Typography variant="h6">
                                     {data.abstract}
-                                </PublicationTypography>
+                                </Typography>
                             </Collapse>
                         </Box>
                     </Box>

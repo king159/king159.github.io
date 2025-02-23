@@ -5,7 +5,7 @@ import AboutMeCell from '../components/About/about-me-cell.tsx'
 
 const About = () => (
     <Main title="About">
-        <Typography sx={{ mt: 4, mb: 2, color: 'black' }} variant="h4">
+        <Typography sx={{ mt: 4, mb: 2}} variant="h1">
             About
         </Typography>
         <AboutMeCell />

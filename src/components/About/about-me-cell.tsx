@@ -6,6 +6,7 @@ import {
     ListItemIcon,
     ListItemText,
     Typography,
+    Box,
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
@@ -13,11 +14,7 @@ import aboutMeData from 'data/about/bio'
 import newsData from 'data/about/news'
 
 const BioTypography = styled(Typography)({
-    fontFamily: 'Söhne, sans-serif',
-    lineHeight: '200%',
-    backgroundColor: 'white',
     padding: '1em',
-    borderRadius: '10px',
     boxShadow: '0 0 2px #0000001a',
     '& a': {
         textDecoration: 'none',
@@ -39,14 +36,14 @@ const BioTypography = styled(Typography)({
 
 export default function AboutMeCell() {
     return (
-        <div>
-            <Typography sx={{ mt: 4, mb: 2 }} variant="h6" color="black">
+        <Box>
+            <Typography sx={{ mt: 4, mb: 2 }} variant="h4">
                 Biography
             </Typography>
             <Card>
                 <BioTypography>{aboutMeData}</BioTypography>
             </Card>
-            <Typography sx={{ mt: 4, mb: 2 }} variant="h6" color="black">
+            <Typography sx={{ mt: 4, mb: 2 }} variant="h4">
                 Updates
             </Typography>
             <Card>
@@ -72,6 +69,6 @@ export default function AboutMeCell() {
                     ))}
                 </List>
             </Card>
-        </div>
+        </Box>
     )
 }
