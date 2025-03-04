@@ -10,7 +10,7 @@ const data = [
         icon: LocationOnIcon,
     },
     {
-        link: 'jinghao.w@link.cuhk.edu.hk',
+        link: 'academic@wjh.app',
         description: 'Email',
         icon: EmailIcon,
     },

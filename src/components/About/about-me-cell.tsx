@@ -29,8 +29,7 @@ const BioTypography = styled(Typography)({
         },
     },
     '& del': {
-        fontSize: '21px',
-        opacity: '0.4',
+        fontWeight: 'bold',
     },
 })
 
